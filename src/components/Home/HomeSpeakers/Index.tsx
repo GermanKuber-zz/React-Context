@@ -15,7 +15,7 @@ const HomeSpeakers: React.SFC<HomeSpeakersProps> = () => {
       <h2>Algunos de Nuestros Speakers</h2>
       <div className="row">
         {speakers.map(speaker => (
-          <div className="col-lg-4 col-sm-6 portfolio-item">
+          <div key={speaker.id} className="col-lg-4 col-sm-6 portfolio-item">
             <div className="card h-100">
               <a href="#">
                 <img className="card-img-top" src={speaker.picture} alt="" />

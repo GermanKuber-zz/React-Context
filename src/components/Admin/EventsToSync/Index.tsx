@@ -53,7 +53,7 @@ const EventsToSync: React.SFC<
           </thead>
           <tbody>
             {eventsToSync.map(event => (
-              <tr>
+              <tr key={event.id}>
                 <th scope="row">{event.id}</th>
                 <td>{event.title}</td>
                 <td>{event.source}</td>

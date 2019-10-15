@@ -1,5 +1,11 @@
 import React, { Context, useState } from "react";
 import { User } from "../services/models/User";
+import {
+  isAuthenticated,
+  getCurrentUser,
+  logout,
+  login
+} from "../services/authService";
 type UserContext = {
   user: User;
   isLoggued: boolean;
@@ -14,26 +20,29 @@ const defaultUser = () => {
   return {
     email: "",
     name: "",
-    lastName: ""
+    lastName: "",
+    token: ""
   };
 };
 const { Provider, Consumer } = (UserContext = React.createContext<UserContext>({
-  user: defaultUser(),
-  isLoggued: false,
+  user: getCurrentUser(),
+  isLoggued: isAuthenticated(),
   login: () => {},
   logout: () => {}
 }));
 
 const UserProvider: React.SFC<UserContextProps> = props => {
-  const [user, setUser] = useState(defaultUser());
-  const [isLoggued, setLoggued] = useState(false);
+  const [user, setUser] = useState(getCurrentUser());
+  const [isLoggued, setLoggued] = useState(isAuthenticated());
 
   const loginHandler = (user: User) => {
+    login(user);
     setLoggued(true);
     setUser(user);
   };
 
   const logoutHandler = () => {
+    logout();
     setLoggued(false);
     setUser(defaultUser());
   };
