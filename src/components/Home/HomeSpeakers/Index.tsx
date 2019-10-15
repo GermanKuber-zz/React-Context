@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { getSpeakers, Speaker } from "../../../services/speakersServices";
+import { getSpeakers } from "../../../services/speakersServices";
+import { Speaker } from "../../../services/models/speaker";
+import { NavLink } from "react-router-dom";
 
 type HomeSpeakersProps = {};
 const HomeSpeakers: React.SFC<HomeSpeakersProps> = () => {
@@ -20,9 +22,13 @@ const HomeSpeakers: React.SFC<HomeSpeakersProps> = () => {
               </a>
               <div className="card-body">
                 <h4 className="card-title">
-                  <a href="#">
+                  <NavLink
+                    exact
+                    className="btn btn-primary"
+                    to={`/speaker/${speaker.id}`}
+                  >
                     {speaker.name} - {speaker.lastName}
-                  </a>
+                  </NavLink>
                 </h4>
                 <p className="card-text">
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet

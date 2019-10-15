@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { Speaker } from "../../../services/speakersServices";
 import { getOrganizers } from "../../../services/organizersServices";
+import { NavLink } from "react-router-dom";
+import { Speaker } from "../../../services/models/speaker";
 
 type HomeOrganizersProps = {};
 const HomeOrganizers: React.SFC<HomeOrganizersProps> = () => {
@@ -26,9 +27,13 @@ const HomeOrganizers: React.SFC<HomeOrganizersProps> = () => {
                 </p>
               </div>
               <div className="card-footer">
-                <a href="#" className="btn btn-primary">
+                <NavLink
+                  exact
+                  className="btn btn-primary"
+                  to={`/organizador/${organizer.id}`}
+                >
                   Learn More
-                </a>
+                </NavLink>
               </div>
             </div>
           </div>

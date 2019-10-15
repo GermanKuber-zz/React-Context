@@ -6,7 +6,7 @@ import { match } from "react-router";
 type HeaderProps = {};
 export const Header: React.SFC<HeaderProps> = props => {
   const { user, isLoggued, logout } = useContext(UserContext);
-  const handleLogout = () => {
+  const handleLogout = (event: MouseEvent<HTMLAnchorElement>) => {
     logout();
   };
 
@@ -72,7 +72,16 @@ export const Header: React.SFC<HeaderProps> = props => {
                     </NavLink>
                   </li>{" "}
                   <li className="nav-item">
-                    <a onClick={handleLogout} class="nav-link" href="#">
+                    <NavLink
+                      className="nav-link"
+                      activeClassName="active"
+                      to="/admin/eventsToSync"
+                    >
+                      Eventos para Syncronizar
+                    </NavLink>
+                  </li>
+                  <li className="nav-item">
+                    <a onClick={handleLogout} className="nav-link" href="#">
                       Desconectarse
                     </a>
                   </li>

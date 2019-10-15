@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { Sponsor, getSponsors } from "../../../services/sponsorsServices";
+import { getSponsors } from "../../../services/sponsorsServices";
 import { NavLink } from "react-router-dom";
+import { Sponsor } from "../../../services/models/sponsor";
 
 type HomeSponsorsProps = {};
 const HomeSponsors: React.SFC<HomeSponsorsProps> = () => {
@@ -14,7 +15,7 @@ const HomeSponsors: React.SFC<HomeSponsorsProps> = () => {
       <h1 className="my-4">Sponsors</h1>
       <div className="row">
         {sponsors.map(sponsor => (
-          <div className="col-lg-4 mb-4">
+          <div key={sponsor.id} className="col-lg-4 mb-4">
             <div className="card h-100">
               <h4 className="card-header">{sponsor.title}</h4>
               <div className="card-body">

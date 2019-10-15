@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { getNextEvent, Event } from "../../../services/eventsServices";
+import { getNextEvent } from "../../../services/eventsServices";
+import { Event } from "../../../services/models/Event";
 
 type NextEventProps = {};
 const NextEvent: React.SFC<NextEventProps> = () => {

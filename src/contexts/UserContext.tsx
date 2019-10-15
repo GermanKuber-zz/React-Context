@@ -1,4 +1,5 @@
 import React, { Context, useState } from "react";
+import { User } from "../services/models/User";
 type UserContext = {
   user: User;
   isLoggued: boolean;
@@ -8,12 +9,6 @@ type UserContext = {
 type UserContextProps = {};
 
 let UserContext: Context<UserContext>;
-
-export type User = {
-  email: string;
-  name: string;
-  lastName: string;
-};
 
 const defaultUser = () => {
   return {
