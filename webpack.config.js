@@ -9,15 +9,12 @@ module.exports = {
     path: path.join(__dirname, "/dist"),
     filename: "bundle.js"
   },
-
-  // adding .ts and .tsx to resolve.extensions will help babel look for .ts and .tsx files to transpile
   resolve: {
     extensions: [".ts", ".tsx", ".js"]
   },
   devtool: "source-map",
   module: {
     rules: [
-      // we use babel-loader to load our jsx and tsx files
       {
         test: /\.(ts|js)x?$/,
         exclude: /node_modules/,
@@ -25,8 +22,10 @@ module.exports = {
           loader: "babel-loader"
         }
       },
-
-      // css-loader to bundle all the css files into one file and style-loader to add all the styles  inside the style tag of the document
+      {
+        test: /\.svg$/,
+        loader: "svg-inline-loader"
+      },
       {
         test: /\.css$/,
         use: ["style-loader", "css-loader"]
@@ -34,6 +33,26 @@ module.exports = {
       {
         test: /\.exec\.js$/,
         use: ["script-loader"]
+      },
+      {
+        test: /\.(png|jpe?g|gif)$/i,
+        use: [
+          {
+            loader: "file-loader"
+          }
+        ]
+      },
+      {
+        test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+        use: [
+          {
+            loader: "file-loader",
+            options: {
+              name: "[name].[ext]",
+              outputPath: "fonts/"
+            }
+          }
+        ]
       }
     ]
   },

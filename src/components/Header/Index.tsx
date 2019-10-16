@@ -84,6 +84,15 @@ export const Header: React.SFC<HeaderProps> = props => {
                     </NavLink>
                   </li>
                   <li className="nav-item">
+                    <NavLink
+                      className="nav-link"
+                      activeClassName="active"
+                      to="/admin/events"
+                    >
+                      Mis Eventos
+                    </NavLink>
+                  </li>
+                  <li className="nav-item">
                     <a onClick={handleLogout} className="nav-link" href="#">
                       Desconectarse
                     </a>

@@ -14,6 +14,8 @@ import OrganizerDetail from "./OrganizerDetail";
 import EventsToSync from "./Admin/EventsToSync";
 import ControlPanel from "./Admin/controlPanel";
 import { PrivateRoute } from "./router/PrivateRoute";
+import EditEvent from "./Admin/EditEvent/Index";
+import Events from "./Admin/Events/Index";
 export const App: React.SFC = () => {
   useEffect(() => {}, []);
   return (
@@ -28,6 +30,12 @@ export const App: React.SFC = () => {
             <Route path="/speaker/:id(\d+)?" component={SpeakerDetail} />
             <Route path="/sponsor/:id(\d+)?" component={Sponsor} />
             <PrivateRoute path="/admin/eventsToSync" component={EventsToSync} />
+            <PrivateRoute exact path="/admin/events" component={Events} />
+            <PrivateRoute
+              exact
+              path="/admin/events/:id(\d+)?/edit"
+              component={EditEvent}
+            />
             <Route path="/login" component={Login} />
             <PrivateRoute path="/panel" component={ControlPanel} />
             <Route path="*" component={NotFound} />

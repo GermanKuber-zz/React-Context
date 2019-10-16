@@ -7,41 +7,46 @@
       "address": "363 Temple Court, Muse, Indiana, 5029",
       "description": "Ut exercitation do voluptate et non est. Velit sunt aliquip reprehenderit labore. Dolore commodo id exercitation sunt pariatur deserunt dolor Lorem minim tempor nisi.\r\n",
       "date": "2016-09-30T08:06:26 +03:00",
-      "users": [
+      "attendees": [
         {
           "id": "1",
           "picture": "http://placehold.it/32x32",
           "name": "Clarke",
           "lastName": "Aguilar",
-          "email": "pepe@pepe.com"
+          "email": "pepe@pepe.com",
+          "attended": false
         },
         {
           "id": "2",
           "picture": "http://placehold.it/32x32",
           "name": "Langley",
           "lastName": "Fleming",
-          "email": "pepe2@pepe.com"
+          "email": "pepe2@pepe.com",
+          "attended": false
         },
         {
           "id": "3",
           "picture": "http://placehold.it/32x32",
           "name": "Priscilla",
           "lastName": "Oliver",
-          "email": "pepe3@pepe.com"
+          "email": "pepe3@pepe.com",
+          "attended": false
         },
         {
           "id": "4",
           "picture": "http://placehold.it/32x32",
           "name": "Brittney",
           "lastName": "Frank",
-          "email": "pepe4@pepe.com"
+          "email": "pepe4@pepe.com",
+          "attended": false
         },
         {
           "id": "5",
           "picture": "http://placehold.it/32x32",
           "name": "Valentine",
           "lastName": "Hubbard",
-          "email": "pepe5@pepe.com"
+          "email": "pepe5@pepe.com",
+          "attended": false
         }
       ]
     }
@@ -271,6 +276,52 @@
       "address": "884 Miami Court, Edenburg, West Virginia, 9912",
       "description": "Dolore sint nulla labore irure enim. Elit nostrud culpa in laborum aliqua do nisi ut dolore id aliquip eiusmod amet. Ipsum non non eu incididunt laborum labore sit laboris nisi veniam cupidatat. Qui ad id voluptate nulla amet exercitation qui ipsum sit elit dolore ex culpa mollit. Proident velit esse ullamco pariatur reprehenderit est minim tempor nulla dolore aliquip Lorem. Reprehenderit aliquip excepteur duis commodo est do nulla dolor tempor et. Ipsum ad elit esse exercitation dolor esse non dolor voluptate anim.\r\n",
       "date": "2014-10-26T02:09:33 +03:00"
+    }
+  ],
+  "meEvents": [
+    {
+      "id": "1",
+      "title": "Hello, undefined! You have 2 unread messages.",
+      "picture": "http://placehold.it/700x450",
+      "address": "363 Temple Court, Muse, Indiana, 5029",
+      "description": "Ut exercitation do voluptate et non est. Velit sunt aliquip reprehenderit labore. Dolore commodo id exercitation sunt pariatur deserunt dolor Lorem minim tempor nisi.\r\n",
+      "date": "2016-09-30T08:06:26 +03:00",
+      "attendees": 29,
+      "registered": 80,
+      "company": "Huanei"
+    },
+    {
+      "id": "2",
+      "title": "Hello, undefined! You have 1 unread messages.",
+      "picture": "http://placehold.it/700x450",
+      "address": "870 Jamaica Avenue, Mappsville, Vermont, 5630",
+      "description": "Ipsum aliquip qui ut do sunt occaecat eiusmod sint. Tempor nulla enim amet non exercitation consectetur sint do quis sint adipisicing dolor. Sit aute eu duis excepteur dolore esse reprehenderit cupidatat nulla ad.\r\n",
+      "date": "2016-09-08T01:08:17 +03:00",
+      "attendees": 60,
+      "registered": 100,
+      "company": "Accenture"
+    },
+    {
+      "id": "3",
+      "title": "Hello, undefined! You have 5 unread messages.",
+      "picture": "http://placehold.it/700x450",
+      "address": "463 Wolcott Street, Ypsilanti, Illinois, 3659",
+      "description": "Enim ipsum anim deserunt consectetur irure Lorem velit sint ad sint sunt. Magna culpa dolor excepteur est consequat esse elit nostrud. In do adipisicing dolore laboris ipsum est. Et fugiat id sint laborum ut ullamco sunt minim. Reprehenderit ipsum labore in id voluptate proident eiusmod eu. Tempor nisi irure enim est exercitation consequat voluptate sint pariatur officia.\r\n",
+      "date": "2015-08-19T12:21:13 +03:00",
+      "attendees": 49,
+      "registered": 79,
+      "company": "Lagash"
+    },
+    {
+      "id": "4",
+      "title": "Hello, undefined! You have 10 unread messages.",
+      "picture": "http://placehold.it/700x450",
+      "address": "921 Gerritsen Avenue, Malo, New Jersey, 7376",
+      "description": "Fugiat tempor laboris mollit dolor in sint occaecat sit cillum. Id veniam laborum excepteur eiusmod dolore adipisicing est est exercitation. Id aliquip excepteur dolore sint deserunt excepteur. Proident aliqua fugiat ad laborum excepteur ut pariatur est ipsum excepteur amet exercitation.\r\n",
+      "date": "2016-04-05T02:20:32 +03:00",
+      "attendees": 29,
+      "registered": 80,
+      "company": "Microsoft"
     }
   ],
   "sponsors": [
