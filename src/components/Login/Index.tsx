@@ -1,17 +1,21 @@
 import React, { useContext, useState, MouseEvent } from "react";
 import { UserContext } from "../../contexts/UserContext";
 import { login as loginService } from "../../services/loginService";
+import { useHistory } from "react-router-dom";
 
 type LoginProps = {};
 const Login: React.SFC<LoginProps> = props => {
   const { login, isLoggued } = useContext(UserContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  let history = useHistory();
+
   const handleLogin = (event: MouseEvent<HTMLInputElement>) => {
     event.preventDefault();
     const user = loginService(email, password);
 
     login(user);
+    history.push("/");
   };
   return (
     <>

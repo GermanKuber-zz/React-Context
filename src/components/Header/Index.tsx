@@ -1,13 +1,16 @@
 import React, { useContext, useState, MouseEvent } from "react";
 import { UserContext } from "../../contexts/UserContext";
-import { NavLink } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 import { Location } from "history";
 import { match } from "react-router";
 type HeaderProps = {};
 export const Header: React.SFC<HeaderProps> = props => {
   const { user, isLoggued, logout } = useContext(UserContext);
+  let history = useHistory();
+
   const handleLogout = (event: MouseEvent<HTMLAnchorElement>) => {
     logout();
+    history.push("/");
   };
 
   const handleIsActive = (match: match<any>, location: Location): boolean => {

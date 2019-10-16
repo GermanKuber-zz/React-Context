@@ -1,4 +1,51 @@
 {
+  "eventsDetail": [
+    {
+      "id": "1",
+      "title": "Hello, undefined! You have 2 unread messages.",
+      "picture": "http://placehold.it/700x450",
+      "address": "363 Temple Court, Muse, Indiana, 5029",
+      "description": "Ut exercitation do voluptate et non est. Velit sunt aliquip reprehenderit labore. Dolore commodo id exercitation sunt pariatur deserunt dolor Lorem minim tempor nisi.\r\n",
+      "date": "2016-09-30T08:06:26 +03:00",
+      "users": [
+        {
+          "id": "1",
+          "picture": "http://placehold.it/32x32",
+          "name": "Clarke",
+          "lastName": "Aguilar",
+          "email": "pepe@pepe.com"
+        },
+        {
+          "id": "2",
+          "picture": "http://placehold.it/32x32",
+          "name": "Langley",
+          "lastName": "Fleming",
+          "email": "pepe2@pepe.com"
+        },
+        {
+          "id": "3",
+          "picture": "http://placehold.it/32x32",
+          "name": "Priscilla",
+          "lastName": "Oliver",
+          "email": "pepe3@pepe.com"
+        },
+        {
+          "id": "4",
+          "picture": "http://placehold.it/32x32",
+          "name": "Brittney",
+          "lastName": "Frank",
+          "email": "pepe4@pepe.com"
+        },
+        {
+          "id": "5",
+          "picture": "http://placehold.it/32x32",
+          "name": "Valentine",
+          "lastName": "Hubbard",
+          "email": "pepe5@pepe.com"
+        }
+      ]
+    }
+  ],
   "eventsToSync": [
     {
       "id": "1",
