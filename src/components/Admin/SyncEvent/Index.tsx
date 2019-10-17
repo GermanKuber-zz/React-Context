@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, ChangeEvent } from "react";
 import { RouteComponentProps } from "react-router-dom";
 import { getEventToSync } from "../../../services/eventsServices";
 import {
@@ -28,6 +28,27 @@ const SyncEvent: React.SFC<
       }
     );
   }, []);
+  const handleOnChangeTitle = (eventInput: ChangeEvent<HTMLInputElement>) => {
+    eventInput.preventDefault();
+    setEvent({ ...event, title: eventInput.target.value });
+  };
+  const handleOnChangeDescription = (
+    eventInput: ChangeEvent<HTMLTextAreaElement>
+  ) => {
+    eventInput.preventDefault();
+    setEvent({ ...event, description: eventInput.target.value });
+  };
+  const handleUserAttended = (
+    eventInput: ChangeEvent<HTMLInputElement>,
+    user: UserDetailToSync
+  ) => {
+    eventInput.preventDefault();
+
+    const updateIndex = users.indexOf(user);
+    const usersToUpdate = users.slice();
+    usersToUpdate[updateIndex].attended = Boolean(eventInput.target.value);
+    setUsers(usersToUpdate);
+  };
 
   // const handleCancelEvent = (
   //   event: MouseEvent<HTMLButtonElement>,
@@ -43,47 +64,34 @@ const SyncEvent: React.SFC<
   // };
   return (
     <>
-      <h1>aaa</h1>
       <form>
         <div className="form-group">
-          <label>Email address</label>
+          <label>Titutlo De Evento</label>
           <input
-            type="email"
+            onChange={handleOnChangeTitle}
             className="form-control"
             id="exampleFormControlInput1"
-            placeholder="name@example.com"
+            value={event.title}
           ></input>
         </div>
         <div className="form-group">
-          <label>Example select</label>
-          <select className="form-control" id="exampleFormControlSelect1">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-          </select>
-        </div>
-        <div className="form-group">
-          <label>Example multiple select</label>
-          <select
-            multiple
+          <label>Plataforma</label>
+          <input
+            disabled
             className="form-control"
-            id="exampleFormControlSelect2"
-          >
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-          </select>
+            id="exampleFormControlInput1"
+            value={event.platform}
+          ></input>
         </div>
+
         <div className="form-group">
           <label>Example textarea</label>
           <textarea
+            onChange={handleOnChangeDescription}
             className="form-control"
             id="exampleFormControlTextarea1"
             rows={3}
+            value={event.description}
           ></textarea>
         </div>
       </form>
@@ -106,13 +114,21 @@ const SyncEvent: React.SFC<
                   <td>{user.name}</td>
                   <td>{user.lastName}</td>
                   <td>{user.email}</td>
-                  <td>{user.attended}</td>
-                  <td></td>
+                  <td>
+                    <input
+                      type="checkbox"
+                      checked={user.attended}
+                      onChange={evt => handleUserAttended(evt, user)}
+                    />
+                  </td>
                 </tr>
               ))}
             </tbody>
           </table>
         )}
+        <button type="button" className="btn btn-success">
+          Sincronizar
+        </button>
       </>
     </>
   );

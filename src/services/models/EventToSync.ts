@@ -26,7 +26,8 @@ export interface Assistant {
 export interface EventDetailToSync {
   id: string;
   title: string;
-  source: string;
+  description: string;
+  platform: string;
   status: string;
   date: Date;
   attendees: UserDetailToSync[];
@@ -36,5 +37,5 @@ export interface UserDetailToSync {
   name: string;
   lastName: string;
   email: string;
-  attended: string;
+  attended: boolean;
 }
