@@ -1,9 +1,9 @@
 export interface EventToSync {
   id: string;
   title: string;
-  source: string;
   status: string;
   date: Date;
+  platform: string;
 }
 
 export interface EventToEdit {
@@ -22,4 +22,19 @@ export interface Assistant {
   lastName: string;
   attended: boolean;
   picture: string;
+}
+export interface EventDetailToSync {
+  id: string;
+  title: string;
+  source: string;
+  status: string;
+  date: Date;
+  attendees: UserDetailToSync[];
+}
+export interface UserDetailToSync {
+  id: string;
+  name: string;
+  lastName: string;
+  email: string;
+  attended: string;
 }

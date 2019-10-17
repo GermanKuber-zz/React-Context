@@ -1,5 +1,5 @@
 import React, { useState, useEffect, MouseEvent } from "react";
-import { RouteComponentProps } from "react-router-dom";
+import { RouteComponentProps, useHistory } from "react-router-dom";
 import {
   getEventsToSync,
   cancelEventsToSync,
@@ -18,6 +18,8 @@ type EventsToSyncPropsAndRouter = EventsToSyncParams & EventsToSyncProps;
 const EventsToSync: React.SFC<
   RouteComponentProps<EventsToSyncPropsAndRouter>
 > = () => {
+  let history = useHistory();
+
   const defaultEventsToSync = new Array<EventToSync>();
   const [eventsToSync, setEventoToSync] = useState(defaultEventsToSync);
   useEffect(() => {
@@ -36,6 +38,9 @@ const EventsToSync: React.SFC<
     eventToSync: EventToSync
   ) => {
     event.preventDefault();
+    history.push(
+      `/admin/eventsToSync/${eventToSync.id}/${eventToSync.platform}/sync`
+    );
     syncEventsToSync(eventToSync);
   };
   return (

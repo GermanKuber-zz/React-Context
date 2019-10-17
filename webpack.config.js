@@ -1,6 +1,9 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 module.exports = {
+  devServer: {
+    historyApiFallback: true
+  },
   // webpack will take the files from ./src/index
   entry: "./src/index",
 

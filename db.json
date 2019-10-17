@@ -55,21 +55,21 @@
     {
       "id": "1",
       "title": "PRoximo evento meetup",
-      "source": "Meetup",
+      "platform": "Meetup",
       "status": "",
       "date": "2016-09-30T08:06:26 +03:00"
     },
     {
       "id": "2",
       "title": "PRoximo evento meetup 2",
-      "source": "Meetup",
+      "platform": "Meetup",
       "status": "",
       "date": "2016-09-30T08:06:26 +03:00"
     },
     {
       "id": "3",
       "title": "PRoximo evento EventBrite",
-      "source": "EventBrite",
+      "platform": "EventBrite",
       "status": "",
       "date": "2016-09-30T08:06:26 +03:00"
     }
