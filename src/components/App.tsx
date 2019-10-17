@@ -19,6 +19,9 @@ import Events from "./Admin/Events/Index";
 import SyncEvent from "./Admin/SyncEvent/Index";
 import { css } from "@emotion/core";
 import LoadingOverlay from "react-loading-overlay";
+import NewSponsor from "./Admin/Sponsors/NewSponsor/Index";
+import SponsorsList from "./Admin/Sponsors/List/Index";
+import EditSponsor from "./Admin/Sponsors/EditSponsor/Index";
 
 export const App: React.SFC = () => {
   const override = css`
@@ -37,7 +40,7 @@ export const App: React.SFC = () => {
     <>
       <Router history={historyRouter}>
         <Header></Header>
-        <LoadingOverlay active={true} spinner text="Procesando...">
+        <LoadingOverlay active={false} spinner text="Procesando...">
           <div className="container">
             <Switch>
               <Route exact path="/" component={Home} />
@@ -61,8 +64,24 @@ export const App: React.SFC = () => {
                 path="/admin/eventsToSync/:id/:platform/sync"
                 component={SyncEvent}
               />
+              <PrivateRoute
+                exact
+                path="/admin/sponsors/new"
+                component={NewSponsor}
+              />
+              <PrivateRoute
+                exact
+                path="/admin/sponsors/:id/edit"
+                component={EditSponsor}
+              />
+              <PrivateRoute
+                exact
+                path="/admin/sponsors"
+                component={SponsorsList}
+              />
+
               <Route path="/login" component={Login} />
-              <PrivateRoute path="/panel" component={ControlPanel} />
+              <PrivateRoute path="/admin/panel" component={ControlPanel} />
               <Route path="*" component={NotFound} />
             </Switch>
           </div>

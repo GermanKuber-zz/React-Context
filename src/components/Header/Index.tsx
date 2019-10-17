@@ -46,7 +46,23 @@ export const Header: React.SFC<HeaderProps> = props => {
           <NavLink
             className="nav-link-slide-bar"
             activeClassName="active"
-            to="/panel"
+            to="/admin/sponsors"
+          >
+            <i className="fa fa-fw fa-panel-o"></i>
+            Sponsors
+          </NavLink>
+          <NavLink
+            className="nav-link-slide-bar"
+            activeClassName="active"
+            to="/admin/sponsors/new"
+          >
+            <i className="fa fa-fw fa-mis-eventos-o"></i>
+            Nuevo Sponsor
+          </NavLink>
+          <NavLink
+            className="nav-link-slide-bar"
+            activeClassName="active"
+            to="/admin/panel"
           >
             <i className="fa fa-fw fa-panel-o"></i>
             Panel de Control

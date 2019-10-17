@@ -6,3 +6,10 @@ export const getSponsors = (): Promise<Sponsor[]> => {
 export const getSponsor = (id: number): Promise<Sponsor> => {
   return fetch(`http://localhost:3000/sponsors/${id}`).then(x => x.json());
 };
+
+export const newSponsor = (newSponsor: Sponsor): Promise<Sponsor> => {
+  return fetch(`http://localhost:3000/sponsors/`).then(x => x.json());
+};
+export const saveSponsor = (sponsor: Sponsor): Promise<Sponsor> => {
+  return fetch(`http://localhost:3000/sponsors/`).then(x => x.json());
+};

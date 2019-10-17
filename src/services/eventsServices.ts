@@ -14,8 +14,10 @@ export const getMeEvents = (): Promise<MeEvent[]> => {
 export const getEventsToSync = (): Promise<EventToSync[]> => {
   return fetch("http://localhost:3000/eventsToSync").then(x => x.json());
 };
-export const getEventToEdit = (id: number): Promise<EventToEdit> => {
-  return fetch(`http://localhost:3000/eventsDetail/${id}`).then(x => x.json());
+export const getEventToEdit = (id: number): Promise<EventDetailToSync> => {
+  return fetch(`http://localhost:3000/eventsDetailToEdit/${id}`).then(x =>
+    x.json()
+  );
 };
 export const getEventToSync = (
   id: string,

@@ -38,4 +38,6 @@ export interface UserDetailToSync {
   lastName: string;
   email: string;
   attended: boolean;
+  speaker: boolean;
+  organizer: boolean;
 }
