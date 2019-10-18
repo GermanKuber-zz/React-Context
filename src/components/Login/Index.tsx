@@ -2,6 +2,8 @@ import React, { useContext, useState, MouseEvent } from "react";
 import { UserContext } from "../../contexts/UserContext";
 import { login as loginService } from "../../services/loginServices";
 import { useHistory } from "react-router-dom";
+import { Config } from "../../services/config";
+
 var ClientOAuth2 = require("client-oauth2");
 type LoginProps = {};
 const Login: React.SFC<LoginProps> = props => {
@@ -11,12 +13,16 @@ const Login: React.SFC<LoginProps> = props => {
   const [password, setPassword] = useState("");
   let history = useHistory();
   var meetupAuth = new ClientOAuth2({
-    clientId: "443afqsa6fs1hr6h0u8i8b8sib",
-    clientSecret: "t2bi61kgksc30sls7e29s04lr1",
-    accessTokenUri: "https://secure.meetup.com/oauth2/access",
-    authorizationUri: "https://secure.meetup.com/oauth2/authorize",
-    redirectUri: "http://localhost:8080/login/meetup",
-    scopes: ["basic"]
+    clientId: Config.integrations.meetup.clientId,
+    clientSecret: Config.integrations.meetup.clientSecret,
+    accessTokenUri: Config.integrations.meetup.accessTokenUri,
+    authorizationUri: Config.integrations.meetup.authorizationUri,
+    redirectUri: Config.integrations.meetup.redirectUri,
+    scopes: Config.integrations.meetup.scopes
+  });
+  var eventBriteAuth = new ClientOAuth2({
+    clientId: Config.integrations.eventBrite.clientId,
+    redirectUri: Config.integrations.meetup.redirectUri
   });
   const handleLogin = (event: MouseEvent<HTMLInputElement>) => {
     event.preventDefault();
@@ -26,32 +32,12 @@ const Login: React.SFC<LoginProps> = props => {
   };
   const handleLoginMeetup = (event: MouseEvent<HTMLInputElement>) => {
     event.preventDefault();
-    window.oauth2Callback = function(uri) {
-      alert("aaa");
-      meetupAuth.token.getToken(uri).then(function(user) {
-        console.log(user); //=> { accessToken: '...', tokenType: 'bearer', ... }
-
-        // Make a request to the github API for the current user.
-        return popsicle
-          .request(
-            user.sign({
-              method: "get",
-              url: "https://api.github.com/user"
-            })
-          )
-          .then(function(res) {
-            console.log(res); //=> { body: { ... }, status: 200, headers: { ... } }
-          });
-      });
-    };
-
-    // Open the page in a new window, then redirect back to a page that calls our global `oauth2Callback` function.
     window.open(meetupAuth.token.getUri());
   };
   const handleLoginEventBrite = (event: MouseEvent<HTMLInputElement>) => {
     event.preventDefault();
     window.open(
-      "https://www.eventbrite.com/oauth/authorize?response_type=code&client_id=NCIKDME6JQAYT7E74V&redirect_uri=http://localhost:8080/login/meetup"
+      `https://www.eventbrite.com/oauth/authorize?response_type=code&client_id=${Config.integrations.eventBrite.clientId}&redirect_uri=${Config.integrations.eventBrite.redirectUri}`
     );
   };
   return (

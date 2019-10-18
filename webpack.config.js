@@ -15,6 +15,7 @@ module.exports = {
   resolve: {
     extensions: [".ts", ".tsx", ".js"]
   },
+  node: { process: true },
   devtool: "source-map",
   module: {
     rules: [
@@ -58,6 +59,11 @@ module.exports = {
         ]
       }
     ]
+  },
+  externals: {
+    Config: JSON.stringify(
+      false ? require("./config.prod.json") : require("./config.dev.json")
+    )
   },
   plugins: [
     new HtmlWebpackPlugin({
