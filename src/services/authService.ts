@@ -44,7 +44,6 @@ export const logout = () => {
 export const hasPermission = (rol: string): boolean => {
   if (!isLoggued) return false;
   const decodeToken = JwtDecode<JwtToken>(currentUser.token);
-  console.log(decodeToken.email);
   return true;
 };
 

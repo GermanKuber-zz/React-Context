@@ -20,7 +20,6 @@ export const Header: React.SFC<HeaderProps> = props => {
     setOpen(false);
   };
   const handleIsActive = (match: match<any>, location: Location): boolean => {
-    console.log(match, location);
     return (match as unknown) as boolean;
   };
   return (

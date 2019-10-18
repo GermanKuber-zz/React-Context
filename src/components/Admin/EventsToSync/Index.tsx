@@ -69,14 +69,14 @@ const EventsToSync: React.SFC<
                     onClick={e => handleSyncEvent(e, event)}
                     className="btn btn-success"
                   >
-                    Sync
+                    Sincronizar
                   </button>
                   <button
                     type="button"
                     onClick={e => handleCancelEvent(e, event)}
                     className="btn btn-danger"
                   >
-                    Cancel
+                    Ignorar
                   </button>
                 </td>
               </tr>

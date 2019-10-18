@@ -3,4 +3,5 @@ export interface Sponsor {
   title: string;
   description: string;
   picture: string;
+  selected?: boolean;
 }

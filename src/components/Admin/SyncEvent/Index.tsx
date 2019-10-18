@@ -5,9 +5,16 @@ import {
   EventDetailToSync,
   UserDetailToSync
 } from "../../../services/models/EventToSync";
+import { connect } from "react-redux";
+import { ready, loading } from "../../../store/loading/actions";
+import { getSponsors } from "../../../services/sponsorsServices";
+import { Sponsor } from "../../../services/models/sponsor";
+import Checkbox from "react-simple-checkbox";
 
 type SyncEventProps = {
   name: string;
+  loading: () => void;
+  ready: () => void;
 };
 type SyncEventParams = {
   id: string;
@@ -15,18 +22,26 @@ type SyncEventParams = {
 };
 
 type SyncEventPropsAndRouter = SyncEventParams & SyncEventProps;
-const SyncEvent: React.SFC<
-  RouteComponentProps<SyncEventPropsAndRouter>
+const SyncEventComponent: React.SFC<
+  RouteComponentProps<SyncEventPropsAndRouter> & SyncEventProps
 > = props => {
   const [event, setEvent] = useState({} as EventDetailToSync);
   const [users, setUsers] = useState(new Array<UserDetailToSync>());
+  const [sponsors, setSponsors] = useState(new Array<Sponsor>());
   useEffect(() => {
+    props.loading();
     getEventToSync(props.match.params.id, props.match.params.platform).then(
       event => {
         setEvent(event);
         setUsers(event.attendees);
+        props.ready();
       }
     );
+  }, []);
+  useEffect(() => {
+    getSponsors().then(sponsors => {
+      setSponsors(sponsors);
+    });
   }, []);
   const handleOnChangeTitle = (eventInput: ChangeEvent<HTMLInputElement>) => {
     eventInput.preventDefault();
@@ -38,30 +53,18 @@ const SyncEvent: React.SFC<
     eventInput.preventDefault();
     setEvent({ ...event, description: eventInput.target.value });
   };
-  const handleUserAttended = (
-    eventInput: ChangeEvent<HTMLInputElement>,
-    user: UserDetailToSync
-  ) => {
-    eventInput.preventDefault();
-
+  const handleUserAttended = (selected: boolean, user: UserDetailToSync) => {
     const updateIndex = users.indexOf(user);
     const usersToUpdate = users.slice();
-    usersToUpdate[updateIndex].attended = Boolean(eventInput.target.value);
+    usersToUpdate[updateIndex].attended = selected;
     setUsers(usersToUpdate);
   };
-
-  // const handleCancelEvent = (
-  //   event: MouseEvent<HTMLButtonElement>,
-  //   eventToSync: EventToSync
-  // ) => {
-  //   event.preventDefault();
-  // };
-  // const handleSyncEvent = (
-  //   event: MouseEvent<HTMLButtonElement>,
-  //   eventToSync: EventToSync
-  // ) => {
-  //   event.preventDefault();
-  // };
+  const handleSponsor = (selected: boolean, sponsor: Sponsor) => {
+    const updateIndex = sponsors.indexOf(sponsor);
+    const sponsorToUpdate = sponsors.slice();
+    sponsorToUpdate[updateIndex].selected = selected;
+    setSponsors(sponsorToUpdate);
+  };
   return (
     <>
       <form>
@@ -115,11 +118,44 @@ const SyncEvent: React.SFC<
                   <td>{user.lastName}</td>
                   <td>{user.email}</td>
                   <td>
-                    <input
-                      type="checkbox"
+                    <Checkbox
                       checked={user.attended}
-                      onChange={evt => handleUserAttended(evt, user)}
-                    />
+                      onChange={(i: boolean) => handleUserAttended(i, user)}
+                    ></Checkbox>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        )}
+        {sponsors && (
+          <table className="table">
+            <thead className="thead-light">
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Titulo</th>
+                <th scope="col">Descripción</th>
+                <th scope="col">Logo</th>
+                <th scope="col">Colaboró</th>
+              </tr>
+            </thead>
+            <tbody>
+              {sponsors.map(sponsor => (
+                <tr key={sponsor.id}>
+                  <th scope="row">{sponsor.id}</th>
+                  <td>{sponsor.title}</td>
+                  <td>{sponsor.description}</td>
+                  <td>
+                    <img
+                      className="sponsors-list-img"
+                      src={sponsor.picture}
+                    ></img>
+                  </td>
+                  <td>
+                    <Checkbox
+                      checked={sponsor.selected}
+                      onChange={(i: boolean) => handleSponsor(i, sponsor)}
+                    ></Checkbox>
                   </td>
                 </tr>
               ))}
@@ -133,4 +169,18 @@ const SyncEvent: React.SFC<
     </>
   );
 };
-export default SyncEvent;
+
+const mapStateToProps = () => ({});
+const mapDispatchToProps = (dispatch: any) => ({
+  loading: () => {
+    dispatch(loading());
+  },
+  ready: () => {
+    dispatch(ready());
+  }
+});
+
+export const SyncEvent = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(SyncEventComponent);

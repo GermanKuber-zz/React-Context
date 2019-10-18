@@ -1,4 +1,4 @@
-import React, { useEffect, useState, MouseEvent } from "react";
+import React, { MouseEvent } from "react";
 import "../styles/index.css";
 import Login from "./Login";
 import { Router, Route, Switch } from "react-router-dom";
@@ -16,31 +16,27 @@ import ControlPanel from "./Admin/controlPanel";
 import { PrivateRoute } from "./router/PrivateRoute";
 import EditEvent from "./Admin/EditEvent/Index";
 import Events from "./Admin/Events/Index";
-import SyncEvent from "./Admin/SyncEvent/Index";
-import { css } from "@emotion/core";
 import LoadingOverlay from "react-loading-overlay";
 import NewSponsor from "./Admin/Sponsors/NewSponsor/Index";
 import SponsorsList from "./Admin/Sponsors/List/Index";
 import EditSponsor from "./Admin/Sponsors/EditSponsor/Index";
+import { AppState } from "../store";
+import { loading, ready } from "../store/loading/actions";
+import { connect } from "react-redux";
+import { SyncEvent } from "./Admin/SyncEvent";
 
-export const App: React.SFC = () => {
-  const override = css`
-    display: block;
-    width: 50%;
-    left: 50%;
-    top: 50%;
-  `;
-  useEffect(() => {}, []);
-  const [loading, setLoading] = useState(false);
+interface AppProps {
+  isLoading: boolean;
+  loading: () => void;
+  ready: () => void;
+}
 
-  const handleCancelEvent = (event: MouseEvent<HTMLButtonElement>) => {
-    setLoading(!loading);
-  };
+export const App: React.SFC<AppProps> = props => {
   return (
     <>
       <Router history={historyRouter}>
         <Header></Header>
-        <LoadingOverlay active={false} spinner text="Procesando...">
+        <LoadingOverlay active={props.isLoading} spinner text="Procesando...">
           <div className="container">
             <Switch>
               <Route exact path="/" component={Home} />
@@ -91,3 +87,20 @@ export const App: React.SFC = () => {
     </>
   );
 };
+
+const mapStateToProps = (state: AppState) => ({
+  isLoading: state.loading.isLoading
+});
+const mapDispatchToProps = (dispatch: any) => ({
+  loading: () => {
+    dispatch(loading());
+  },
+  ready: () => {
+    dispatch(ready());
+  }
+});
+
+export const AppConnected = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App);
