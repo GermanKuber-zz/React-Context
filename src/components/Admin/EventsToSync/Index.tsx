@@ -61,7 +61,7 @@ const EventsToSync: React.SFC<
               <tr key={event.id}>
                 <th scope="row">{event.id}</th>
                 <td>{event.title}</td>
-                <td>{event.source}</td>
+                <td>{event.platform}</td>
                 <td>{event.date}</td>
                 <td>
                   <button

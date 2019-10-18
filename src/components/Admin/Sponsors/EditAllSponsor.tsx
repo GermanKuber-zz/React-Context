@@ -1,4 +1,4 @@
-import React, { useState, MouseEvent } from "react";
+import React, { useState, MouseEvent, useEffect } from "react";
 import { Sponsor } from "../../../services/models/sponsor";
 type EditAllSponsorProps = {
   id?: number;

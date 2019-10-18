@@ -3,6 +3,7 @@ import { RouteComponentProps, useHistory } from "react-router-dom";
 import { Sponsor } from "../../../../services/models/sponsor";
 import EditAllSponsor from "../EditAllSponsor";
 import { saveSponsor, getSponsor } from "../../../../services/sponsorsServices";
+import isEmpty from "../../../../services/objectsservices";
 type EditSponsorProps = {
   name: string;
 };
@@ -17,8 +18,8 @@ const EditSponsor: React.SFC<
   const history = useHistory();
   const [sponsor, setSponsor] = useState({} as Sponsor);
   useEffect(() => {
-    getSponsor(props.match.params.id).then(event => {
-      setSponsor(event);
+    getSponsor(props.match.params.id).then(s => {
+      setSponsor(s);
     });
   }, []);
   const handleSaveSponsor = (sponsor: Sponsor) => {
@@ -32,13 +33,15 @@ const EditSponsor: React.SFC<
   };
   return (
     <>
-      <EditAllSponsor
-        id={sponsor.id}
-        picture={sponsor.picture}
-        name={sponsor.title}
-        description={sponsor.description}
-        saveSponsor={handleSaveSponsor}
-      ></EditAllSponsor>
+      {!isEmpty(sponsor) && (
+        <EditAllSponsor
+          id={sponsor.id}
+          picture={sponsor.picture}
+          name={sponsor.title}
+          description={sponsor.description}
+          saveSponsor={handleSaveSponsor}
+        ></EditAllSponsor>
+      )}
     </>
   );
 };
