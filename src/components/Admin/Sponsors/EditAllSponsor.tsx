@@ -18,7 +18,7 @@ const EditSponsorForm = (props: FormikProps<FormValues>) => {
         <label>Nombre</label>
         <Field type="name" name="name" className="form-control" />
         {touched.name && errors.name && (
-          <div className="form-error">{errors.name}</div>
+          <div className="form-error alert alert-danger">{errors.name}</div>
         )}
       </div>
       <div className="form-group">
@@ -31,14 +31,16 @@ const EditSponsorForm = (props: FormikProps<FormValues>) => {
           className="form-control"
         />
         {touched.description && errors.description && (
-          <div className="form-error">{errors.description}</div>
+          <div className="form-error alert alert-danger">
+            {errors.description}
+          </div>
         )}
       </div>
       <div className="form-group">
         <label>Logo</label>
         <Field type="picture" name="picture" className="form-control" />
         {touched.picture && errors.picture && (
-          <div className="form-error">{errors.picture}</div>
+          <div className="form-error alert alert-danger">{errors.picture}</div>
         )}
       </div>
       <button type="submit" disabled={isSubmitting} className="btn btn-primary">
