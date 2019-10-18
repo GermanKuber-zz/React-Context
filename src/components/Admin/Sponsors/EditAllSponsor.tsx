@@ -1,65 +1,88 @@
-import React, { useState, MouseEvent, useEffect } from "react";
+import React from "react";
 import { Sponsor } from "../../../services/models/sponsor";
+import { withFormik, FormikProps, Form, Field } from "formik";
+import * as yup from "yup"; // for everything
+// Shape of form values
+interface FormValues {
+  id: number;
+  name: string;
+  description: string;
+  picture: string;
+}
+
+const EditSponsorForm = (props: FormikProps<FormValues>) => {
+  const { touched, errors, isSubmitting } = props;
+  return (
+    <Form>
+      <div className="form-group">
+        <label>Nombre</label>
+        <Field type="name" name="name" className="form-control" />
+        {touched.name && errors.name && (
+          <div className="form-error">{errors.name}</div>
+        )}
+      </div>
+      <div className="form-group">
+        <label>Descripción</label>
+        <Field
+          component="textarea"
+          rows="4"
+          type="description"
+          name="description"
+          className="form-control"
+        />
+        {touched.description && errors.description && (
+          <div className="form-error">{errors.description}</div>
+        )}
+      </div>
+      <div className="form-group">
+        <label>Logo</label>
+        <Field type="picture" name="picture" className="form-control" />
+        {touched.picture && errors.picture && (
+          <div className="form-error">{errors.picture}</div>
+        )}
+      </div>
+      <button type="submit" disabled={isSubmitting} className="btn btn-primary">
+        Submit
+      </button>
+    </Form>
+  );
+};
+
+interface MyFormProps {
+  id: number;
+  name: string;
+  description: string;
+  picture: string;
+  saveSponsor: (sponsor: Sponsor) => void;
+}
+const EditAllSponsorFormik = withFormik<MyFormProps, FormValues>({
+  mapPropsToValues: props => {
+    return {
+      ...props
+    };
+  },
+  validationSchema: yup.object<MyFormProps>().shape({
+    name: yup.string().required("Nombre Requerido"),
+    picture: yup.string().required("Logo Requerido")
+  }),
+
+  handleSubmit: (values: any, { props }) => {
+    props.saveSponsor(values);
+  }
+})(EditSponsorForm);
+
 type EditAllSponsorProps = {
-  id?: number;
-  name?: string;
-  description?: string;
-  picture?: string;
+  id: number;
+  name: string;
+  description: string;
+  picture: string;
   saveSponsor: (sponsor: Sponsor) => void;
 };
-const EditAllSponsor: React.SFC<EditAllSponsorProps> = ({
-  saveSponsor,
-  ...props
-}) => {
-  const [name, setName] = useState(props.name ? props.name : "");
-  const [description, setDescription] = useState(
-    props.description ? props.description : ""
-  );
-  const [picture, setPicture] = useState(props.picture ? props.picture : "");
-
-  const handlesaveEvent = (event: MouseEvent<HTMLButtonElement>) => {
-    event.preventDefault();
-    saveSponsor({
-      id: props.id,
-      title: name,
-      description: description,
-      picture: picture
-    } as Sponsor);
-  };
-
+const EditAllSponsor: React.SFC<EditAllSponsorProps> = props => {
   return (
     <>
-      <h1>{name}</h1>
-      <form>
-        <div className="form-group">
-          <label>Nombre</label>
-          <input
-            onChange={e => setName(e.target.value)}
-            className="form-control"
-            value={name}
-          ></input>
-        </div>
-        <div className="form-group">
-          <label>Descripción</label>
-          <textarea
-            className="form-control"
-            rows={3}
-            onChange={e => setDescription(e.target.value)}
-            value={description}
-          ></textarea>
-        </div>
-        <div className="form-group">
-          <label>Logo</label>
-          <input
-            onChange={e => setPicture(e.target.value)}
-            className="form-control"
-            value={picture}
-          ></input>
-        </div>
-        <button onClick={handlesaveEvent} className="btn btn-primary">
-          Guardar
-        </button>
-      </form>
+      <h1>{props.name}</h1>
+      <EditAllSponsorFormik {...props}></EditAllSponsorFormik>
     </>
   );
 };

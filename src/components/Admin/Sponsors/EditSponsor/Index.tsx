@@ -25,7 +25,7 @@ const EditSponsor: React.SFC<
   const handleSaveSponsor = (sponsor: Sponsor) => {
     saveSponsor(sponsor)
       .then(() => {
-        history.push("/panel");
+        history.push("/admin/panel");
       })
       .catch(() => {
         //mostrar error
