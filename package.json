@@ -48,6 +48,7 @@
     "@types/react-dom": "^16.9.1",
     "@types/react-router-dom": "^5.1.0",
     "bootstrap": "^4.3.1",
+    "client-oauth2": "^4.2.5",
     "formik": "^1.5.8",
     "jwt-decode": "^2.2.0",
     "mdbreact": "^4.21.1",
