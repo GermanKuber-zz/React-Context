@@ -16,7 +16,7 @@ type EditEventParams = {
 };
 
 type EditEventPropsAndRouter = EditEventParams & EditEventProps;
-const EditEvent: React.SFC<
+export const EditEvent: React.SFC<
   RouteComponentProps<EditEventPropsAndRouter>
 > = props => {
   const [event, setEvent] = useState({} as EventDetailToSync);
@@ -189,7 +189,6 @@ const EditEvent: React.SFC<
     </>
   );
 };
-export default EditEvent;
 
 class SponsorToEvent {
   id: number = 0;

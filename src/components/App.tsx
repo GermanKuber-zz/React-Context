@@ -11,19 +11,19 @@ import Footer from "./Footer";
 import Sponsor from "./Sponsor";
 import SpeakerDetail from "./SpeakerDetail";
 import OrganizerDetail from "./OrganizerDetail";
-import EventsToSync from "./Admin/EventsToSync";
 import ControlPanel from "./Admin/controlPanel";
 import { PrivateRoute } from "./router/PrivateRoute";
-import EditEvent from "./Admin/EditEvent/Index";
-import Events from "./Admin/Events/Index";
 import LoadingOverlay from "react-loading-overlay";
-import NewSponsor from "./Admin/Sponsors/NewSponsor/Index";
-import SponsorsList from "./Admin/Sponsors/List/Index";
-import EditSponsor from "./Admin/Sponsors/EditSponsor/Index";
 import { AppState } from "../store";
 import { loading, ready } from "../store/loading/actions";
 import { connect } from "react-redux";
-import { SyncEvent } from "./Admin/SyncEvent";
+import { SyncEvent } from "./Admin/Events/SyncEvent";
+import { EventsList } from "./Admin/Events/EventsList";
+import { EditSponsor } from "./Admin/Sponsors/EditSponsor";
+import { NewSponsor } from "./Admin/Sponsors/NewSponsor";
+import { EditEvent } from "./Admin/Events/EditEvent";
+import { EventsToSync } from "./Admin/Events/EventsToSync";
+import { SponsorsList } from "./Admin/Sponsors/SponsorsList";
 
 interface AppProps {
   isLoading: boolean;
@@ -49,7 +49,7 @@ export const App: React.SFC<AppProps> = props => {
                 path="/admin/eventsToSync"
                 component={EventsToSync}
               />
-              <PrivateRoute exact path="/admin/events" component={Events} />
+              <PrivateRoute exact path="/admin/events" component={EventsList} />
               <PrivateRoute
                 exact
                 path="/admin/events/:id(\d+)?/edit"

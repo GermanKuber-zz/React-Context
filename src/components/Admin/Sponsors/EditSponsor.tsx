@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { RouteComponentProps, useHistory } from "react-router-dom";
-import { Sponsor } from "../../../../services/models/sponsor";
-import EditAllSponsor from "../EditAllSponsor";
-import { saveSponsor, getSponsor } from "../../../../services/sponsorsServices";
-import isEmpty from "../../../../services/objectsservices";
+import { Sponsor } from "../../../services/models/sponsor";
+import EditAllSponsor from "./EditAllSponsor";
+import { saveSponsor, getSponsor } from "../../../services/sponsorsServices";
+import isEmpty from "../../../services/objectsservices";
 type EditSponsorProps = {
   name: string;
 };
@@ -12,7 +12,7 @@ type EditSponsorParams = {
 };
 
 type EditSponsorPropsAndRouter = EditSponsorParams & EditSponsorProps;
-const EditSponsor: React.SFC<
+export const EditSponsor: React.SFC<
   RouteComponentProps<EditSponsorPropsAndRouter>
 > = props => {
   const history = useHistory();
@@ -45,4 +45,3 @@ const EditSponsor: React.SFC<
     </>
   );
 };
-export default EditSponsor;

@@ -7,9 +7,9 @@ import { ready, loading } from "../../../store/loading/actions";
 import { getSponsors } from "../../../services/sponsorsServices";
 import { Sponsor } from "../../../services/models/sponsor";
 import "react-bootstrap-table-next/dist/react-bootstrap-table2.min.css";
-import { SelectSponsor } from "../SelectSponsor";
+import { SelectSponsor } from "../components/SelectSponsor";
 import { hasAny } from "../../../services/objectsservices";
-import { SelectUsersAttended } from "../SelectUser";
+import { SelectUsersAttended } from "../components/SelectUser";
 type SyncEventProps = {
   name: string;
   loading: () => void;

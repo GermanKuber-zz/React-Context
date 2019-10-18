@@ -1,9 +1,9 @@
 import React, { useState, useEffect, MouseEvent } from "react";
 import { RouteComponentProps, useHistory } from "react-router-dom";
 import { Sponsor } from "services/models/sponsor";
-import { getSponsors } from "../../../../services/sponsorsServices";
+import { getSponsors } from "../../../services/sponsorsServices";
 
-const SponsorsList: React.SFC<RouteComponentProps> = () => {
+export const SponsorsList: React.SFC<RouteComponentProps> = () => {
   let history = useHistory();
 
   const [sponsors, setSponsor] = useState(new Array<Sponsor>());
@@ -68,4 +68,3 @@ const SponsorsList: React.SFC<RouteComponentProps> = () => {
     </>
   );
 };
-export default SponsorsList;

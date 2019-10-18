@@ -15,7 +15,7 @@ type EventsToSyncParams = {
 };
 
 type EventsToSyncPropsAndRouter = EventsToSyncParams & EventsToSyncProps;
-const EventsToSync: React.SFC<
+export const EventsToSync: React.SFC<
   RouteComponentProps<EventsToSyncPropsAndRouter>
 > = () => {
   let history = useHistory();
@@ -87,4 +87,3 @@ const EventsToSync: React.SFC<
     </>
   );
 };
-export default EventsToSync;

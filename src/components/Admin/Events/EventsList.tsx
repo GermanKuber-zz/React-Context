@@ -9,7 +9,9 @@ type EventsParams = {
   id: number;
 };
 type EventsPropsAndRouter = EventsParams & EventsProps;
-const Events: React.SFC<RouteComponentProps<EventsPropsAndRouter>> = props => {
+export const EventsList: React.SFC<
+  RouteComponentProps<EventsPropsAndRouter>
+> = props => {
   const [events, setEvents] = useState(new Array<MeEvent>());
   useEffect(() => {
     getMeEvents().then(s => {
@@ -68,4 +70,3 @@ const Events: React.SFC<RouteComponentProps<EventsPropsAndRouter>> = props => {
     </>
   );
 };
-export default Events;
