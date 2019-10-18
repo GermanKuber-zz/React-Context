@@ -48,6 +48,12 @@ const Login: React.SFC<LoginProps> = props => {
     // Open the page in a new window, then redirect back to a page that calls our global `oauth2Callback` function.
     window.open(meetupAuth.token.getUri());
   };
+  const handleLoginEventBrite = (event: MouseEvent<HTMLInputElement>) => {
+    event.preventDefault();
+    window.open(
+      "https://www.eventbrite.com/oauth/authorize?response_type=code&client_id=NCIKDME6JQAYT7E74V&redirect_uri=http://localhost:8080/login/meetup"
+    );
+  };
   return (
     <>
       <div className="wrapper fadeInDown">
@@ -92,6 +98,12 @@ const Login: React.SFC<LoginProps> = props => {
                 type="submit"
                 className="fadeIn fourth"
                 value="Meetup"
+              />
+              <input
+                onClick={handleLoginEventBrite}
+                type="submit"
+                className="fadeIn fourth"
+                value="EventBrite"
               />
             </form>
 
