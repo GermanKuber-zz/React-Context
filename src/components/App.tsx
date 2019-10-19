@@ -25,6 +25,7 @@ import { EditEvent } from "./Admin/Events/EditEvent";
 import { EventsToSync } from "./Admin/Events/EventsToSync";
 import { SponsorsList } from "./Admin/Sponsors/SponsorsList";
 import MeetupCallBack from "./Login/MeetupCallBack";
+import { EventLive } from "./Admin/Events/EventLive";
 
 interface AppProps {
   isLoading: boolean;
@@ -77,6 +78,11 @@ export const App: React.SFC<AppProps> = props => {
                 exact
                 path="/admin/sponsors"
                 component={SponsorsList}
+              />
+              <PrivateRoute
+                exact
+                path="/admin/EventLive"
+                component={EventLive}
               />
 
               <Route exact path="/login" component={Login} />
