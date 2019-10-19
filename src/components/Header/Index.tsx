@@ -123,6 +123,16 @@ export const Header: React.SFC<HeaderProps> = props => {
               ) : (
                 <>
                   <li className="nav-item">
+                    <NavLink
+                      isActive={handleIsActive}
+                      className="nav-link"
+                      activeClassName="active"
+                      to="/profile"
+                    >
+                      Perfil
+                    </NavLink>
+                  </li>
+                  <li className="nav-item">
                     <a onClick={handleLogout} className="nav-link" href="#">
                       Desconectarse
                     </a>
