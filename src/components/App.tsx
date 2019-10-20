@@ -27,6 +27,9 @@ import { SponsorsList } from "./Admin/Sponsors/SponsorsList";
 import MeetupCallBack from "./Login/MeetupCallBack";
 import { EventLive } from "./Admin/Events/EventLive";
 import UserProfile from "./Profile/UserProfile";
+import { UsersList } from "./Admin/Users/UsersList";
+import { EditUser } from "./Admin/Users/EditUser";
+import { NewUser } from "./Admin/Users/NewUser";
 
 interface AppProps {
   isLoading: boolean;
@@ -84,6 +87,14 @@ export const App: React.SFC<AppProps> = props => {
                 path="/admin/EventLive"
                 component={EventLive}
               />
+              <PrivateRoute exact path="/admin/users" component={UsersList} />
+              <PrivateRoute
+                exact
+                path="/admin/users/:id(\d+)/Edit"
+                component={EditUser}
+              />
+              <PrivateRoute exact path="/admin/users/new" component={NewUser} />
+
               <PrivateRoute exact path="/profile" component={UserProfile} />
 
               <Route exact path="/login" component={Login} />

@@ -16,3 +16,9 @@ export interface UserDetail {
   instagram: string;
   biography: string;
 }
+export interface UserToEdit {
+  id: number;
+  email: string;
+  name: string;
+  lastName: string;
+}
