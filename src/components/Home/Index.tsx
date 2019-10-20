@@ -17,7 +17,7 @@ export const Home: React.SFC<LoginProps> = () => {
       <HomeSpeakers></HomeSpeakers>
       <HomeSponsors></HomeSponsors>
       <LastEvents></LastEvents>
-      {/* <HomeOrganizers></HomeOrganizers> */}
+      <HomeOrganizers></HomeOrganizers>
       <PhotosSummary></PhotosSummary>
       <VideoPreview></VideoPreview>
     </>

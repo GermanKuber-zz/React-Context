@@ -5,18 +5,36 @@ import { Location } from "history";
 import { match, Route } from "react-router";
 import { slide as Menu } from "react-burger-menu";
 import { SecureElement } from "../Auth/SecureElement";
-import { BreadcrumbsComponent } from './BreadcrumbsComponent';
+import { BreadcrumbsComponent } from "./BreadcrumbsComponent";
 type HeaderProps = {};
-const Breadcrumbs = () => <Route path="*" render={props => {
-  let parts = props.location.pathname.split("/");
-  const place = parts[parts.length-1];
-  parts = parts.slice(1, parts.length-1);
-  return <p>{parts.map(crumb)}{place}</p>}} />
+const Breadcrumbs = () => (
+  <Route
+    path="*"
+    render={props => {
+      let parts = props.location.pathname.split("/");
+      const place = parts[parts.length - 1];
+      parts = parts.slice(1, parts.length - 1);
+      return (
+        <p>
+          {parts.map(crumb)}
+          {place}
+        </p>
+      );
+    }}
+  />
+);
 
-const crumb = (part:any, partIndex:any, parts:any) => {
-      const path = ['', ...parts.slice(0, partIndex+1)].join("/");
-      return (<>
-      <Link key={path} to={path} >{part}</Link>/</>)}
+const crumb = (part: any, partIndex: any, parts: any) => {
+  const path = ["", ...parts.slice(0, partIndex + 1)].join("/");
+  return (
+    <>
+      <Link key={path} to={path}>
+        {part}
+      </Link>
+      /
+    </>
+  );
+};
 export const Header: React.SFC<HeaderProps> = props => {
   const { user, isLoggued, logout } = useContext(UserContext);
   const [open, setOpen] = useState(false);
@@ -106,9 +124,13 @@ export const Header: React.SFC<HeaderProps> = props => {
       </SecureElement>
       <div className="lgx-header-position lgx-header-position-white lgx-header-position-fixed  menu-onscroll">
         <nav className="navbar fixed-top navbar-expand-lg navbar-dark header-menu-dark ">
-          <a className="navbar-brand" href="#">
-            Navbar
-          </a>
+          <NavLink className="navbar-brand" activeClassName="active" to="/">
+            <img
+              class="logo-header"
+              src="/assets/images/logo-header.png"
+              alt="Logo"
+            ></img>
+          </NavLink>
           <button
             className="navbar-toggler"
             type="button"
@@ -121,7 +143,7 @@ export const Header: React.SFC<HeaderProps> = props => {
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="navbar-nav ml-auto">
+            <ul className="navbar-nav ml-auto">
               <li className="nav-item">
                 <NavLink
                   exact
@@ -165,20 +187,14 @@ export const Header: React.SFC<HeaderProps> = props => {
             </ul>
             <form className="form-inline">
               <div className="md-form my-0">
-                <input
-                  className="form-control mr-sm-2"
-                  type="text"
-                  placeholder="Search"
-                  aria-label="Search"
-                ></input>
+                <i class="fas fa-sign-in-alt"></i>
               </div>
             </form>
           </div>
         </nav>
       </div>
-     <BreadcrumbsComponent></BreadcrumbsComponent>
-    <Breadcrumbs></Breadcrumbs>
-
+      <BreadcrumbsComponent></BreadcrumbsComponent>
+      <Breadcrumbs></Breadcrumbs>
     </>
   );
 };

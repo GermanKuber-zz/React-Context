@@ -486,22 +486,7 @@ button span,
 }
 .wpcf7-submit:after,
 .lgx-submit:after,
-button:after,
-.lgx-btn:after {
-  content: "";
-  position: absolute;
-  left: 20px;
-  top: 14px;
-  height: 200px;
-  width: 200px;
-  background: url(../img/dots3.png) 0 0 repeat;
-  background: #1b273d;
-  -webkit-transition: all 0.5s ease-in-out;
-  transition: all 0.5s ease-in-out;
-  -webkit-transform: translateX(-98%) translateY(-25%) rotate(45deg);
-  transform: translateX(-98%) translateY(-25%) rotate(45deg);
-  opacity: .15;
-}
+
 .wpcf7-submit:hover:after,
 .lgx-submit:hover:after,
 button:hover:after,
