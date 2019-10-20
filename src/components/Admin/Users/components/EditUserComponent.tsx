@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { FormikProps, Field, Form, withFormik } from "formik";
 import * as yup from "yup";
-import { UserToEdit } from "../../../../services/models/User";
+import { UserToEdit } from "../../../../services/models/UserToEdit";
 interface FormValues extends UserToEdit {}
 
 const EditUserComponentForm = (props: FormikProps<FormValues>) => {

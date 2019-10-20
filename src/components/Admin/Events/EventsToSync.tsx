@@ -5,7 +5,7 @@ import {
   cancelEventsToSync,
   syncEventsToSync
 } from "../../../services/eventsServices";
-import { EventToSync } from "../../../services/models/EventToSync";
+import { EventToSync } from "../../../services/models/Events/EventToSync";
 
 type EventsToSyncProps = {
   name: string;

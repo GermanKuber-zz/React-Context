@@ -1,6 +1,6 @@
 import React, { useState, useEffect, MouseEvent } from "react";
 import { RouteComponentProps, useHistory } from "react-router-dom";
-import { EventToSync } from "../../services/models/EventToSync";
+import { EventToSync } from "../../services/models/Events/EventToSync";
 import {
   getEventsToSync,
   cancelEventsToSync,

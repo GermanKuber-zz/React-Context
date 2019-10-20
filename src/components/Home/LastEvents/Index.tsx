@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Event } from "../../../services/models/Event";
+import { Event } from "../../../services/models/Events/Event";
 
 type LastEventsProps = {};
 const LastEvents: React.SFC<LastEventsProps> = () => {

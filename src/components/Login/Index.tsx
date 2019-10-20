@@ -33,7 +33,7 @@ const Login: React.SFC<LoginProps> = props => {
     event.preventDefault();
     const user = loginService(email, password);
     login(user);
-    history.push(history.location.search);
+    history.push(redirectUrl);
   };
   const handleLoginMeetup = (event: MouseEvent<HTMLInputElement>) => {
     event.preventDefault();

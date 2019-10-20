@@ -141,6 +141,18 @@
       "enabled": true
     }
   ],
+  "eventsToReportAssistance": [
+    {
+      "id": "1",
+      "title": "Hello, undefined! You have 2 unread messages.",
+      "picture": "http://placehold.it/700x450",
+      "address": "363 Temple Court, Muse, Indiana, 5029",
+      "description": "Ut exercitation do voluptate et non est. Velit sunt aliquip reprehenderit labore. Dolore commodo id exercitation sunt pariatur deserunt dolor Lorem minim tempor nisi.\r\n",
+      "date": "2016-09-30T08:06:26 +03:00",
+      "platform": "Meetup",
+      "tokenToReport": "sakjhsa8d7ays789a7s8dhas8dya87sdy87asdy879ashd9a8sd98asud98asd"
+    }
+  ],
   "eventsDetailToEdit": [
     {
       "id": "1",

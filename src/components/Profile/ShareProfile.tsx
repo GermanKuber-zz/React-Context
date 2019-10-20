@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { UserDetail } from "../../services/models/User";
+import { UserDetail } from "../../services/models/UserDetail";
 import {
   FacebookShareButton,
   LinkedinShareButton,
@@ -8,14 +8,14 @@ import {
   WhatsappShareButton,
   FacebookShareCount,
   EmailShareButton,
-  EmailIcon,
+  EmailIcon
 } from "react-share";
 import {
   FacebookIcon,
   TwitterIcon,
   TelegramIcon,
   WhatsappIcon,
-  LinkedinIcon,
+  LinkedinIcon
 } from "react-share";
 import {
   MDBContainer,
@@ -30,7 +30,7 @@ import {
   MDBCardTitle,
   MDBCardBody,
   MDBBtn,
-  MDBCardText,
+  MDBCardText
 } from "mdbreact";
 
 type ShareProfileProps = {
@@ -50,7 +50,6 @@ export const ShareProfile: React.SFC<ShareProfileProps> = ({ urlToShare }) => {
   };
   return (
     <>
-
       <MDBContainer>
         <MDBCard>
           <MDBCardHeader color="primary-color" tag="h3">

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { UserToEdit } from "../../../services/models/User";
+import { UserToEdit } from "../../../services/models/UserToEdit";
 import { newUser } from "../../../services/userServices";
 import { useHistory } from "react-router";
 import { EditUserComponent } from "./components/EditUserComponent";

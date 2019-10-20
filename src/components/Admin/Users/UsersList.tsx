@@ -3,7 +3,7 @@ import "react-bootstrap-table-next/dist/react-bootstrap-table2.min.css";
 import BootstrapTable from "react-bootstrap-table-next";
 import ToolkitProvider, { Search } from "react-bootstrap-table2-toolkit";
 import paginationFactory from "react-bootstrap-table2-paginator";
-import { UserToEdit } from "../../../services/models/User";
+import { UserToEdit } from "../../../services/models/UserToEdit";
 import { getAllUsersToEdit, enableUser } from "../../../services/userServices";
 import { useHistory } from "react-router";
 import { NavLink } from "react-router-dom";

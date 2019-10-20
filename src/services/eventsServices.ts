@@ -1,9 +1,11 @@
-import { Event, MeEvent } from "./models/Event";
+import { Event } from "./models/Events/Event";
+import { MeEvent } from "./models/Events/MeEvent";
+import { EventToSync } from "./models/Events/EventToSync";
+import { EventToEdit } from "./models/Events/EventToEdit";
 import {
-  EventToSync,
-  EventToEdit,
-  EventDetailToSync
-} from "./models/EventToSync";
+  EventDetailToSync,
+  EventToReportAssistance
+} from "./models/Events/EventDetailToSync";
 
 export const getNextEvent = (): Promise<Event> => {
   return fetch("http://localhost:3000/events/1").then(x => x.json());
@@ -19,6 +21,14 @@ export const getEventToEdit = (id: number): Promise<EventDetailToSync> => {
     x.json()
   );
 };
+export const getEventToReportAssitance = (
+  id: number
+): Promise<EventToReportAssistance> => {
+  return fetch(`http://localhost:3000/eventsToReportAssistance/${id}`).then(x =>
+    x.json()
+  );
+};
+
 export const getEventToSync = (
   id: string,
   platform: string

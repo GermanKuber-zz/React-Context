@@ -1,5 +1,5 @@
 import React, { MouseEvent, useState, useEffect, SyntheticEvent } from "react";
-import { UserToEdit } from "../../../services/models/User";
+import { UserToEdit } from "../../../services/models/UserToEdit";
 import { getUsersToEdit, deleteEditUser } from "../../../services/userServices";
 import { RouteComponentProps, useHistory } from "react-router";
 import { EditUserComponent } from "./components/EditUserComponent";

@@ -1,4 +1,5 @@
-import { UserDetail, UserToEdit } from "./models/User";
+import { UserDetail } from "./models/UserDetail";
+import { UserToEdit } from "./models/UserToEdit";
 
 export const getUserProfile = (id: number = 10): Promise<UserDetail> => {
   return fetch("http://localhost:3000/speakers").then(x => {

@@ -33,7 +33,7 @@ import { NewUser } from "./Admin/Users/NewUser";
 import EventBriteCallBack from "./Login/EventBriteCallBack";
 import { PublicProfile } from "./Profile/PublicProfile";
 import { EventsInLive } from "./Events/EventsInLive";
-import ReportAssistance from "./ReportAssistance/Index";
+import { ReportAssistance } from "./ReportAssistance/Index";
 
 interface AppProps {
   isLoading: boolean;

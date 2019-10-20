@@ -442,3 +442,8 @@ hr {
 .lgx-video {
   background-position: 0px -200px;
 }
+.qrcore-wrapper {
+  width: 205px !important;
+  height: 205px !important;
+  margin: 20px !important;
+}

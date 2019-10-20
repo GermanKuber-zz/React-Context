@@ -1,7 +1,7 @@
 import React, { useState, useEffect, MouseEvent } from "react";
 import { RouteComponentProps, useHistory } from "react-router-dom";
 import { getMeEvents } from "../../../services/eventsServices";
-import { MeEvent } from "../../../services/models/Event";
+import { MeEvent } from "../../../services/models/Events/MeEvent";
 type EventsProps = {
   name: string;
 };

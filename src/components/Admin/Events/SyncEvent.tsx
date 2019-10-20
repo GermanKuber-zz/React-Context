@@ -1,7 +1,7 @@
 import React, { useState, useEffect, ChangeEvent } from "react";
 import { RouteComponentProps } from "react-router-dom";
 import { getEventToSync } from "../../../services/eventsServices";
-import { UserDetailToSync } from "../../../services/models/EventToSync";
+import { UserDetailToSync } from "../../../services/models/UserDetailToSync";
 import { connect } from "react-redux";
 import { ready, loading } from "../../../store/loading/actions";
 import { getSponsors } from "../../../services/sponsorsServices";
@@ -11,7 +11,6 @@ import { SelectSponsor } from "../components/SelectSponsor";
 import { hasAny } from "../../../services/objectsservices";
 import { SelectUsersAttended } from "../components/SelectUser";
 type SyncEventProps = {
-  name: string;
   loading: () => void;
   ready: () => void;
 };

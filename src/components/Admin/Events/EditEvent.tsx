@@ -1,10 +1,8 @@
 import React, { useState, useEffect, ChangeEvent } from "react";
 import { RouteComponentProps } from "react-router-dom";
 import { getEventToEdit } from "../../../services/eventsServices";
-import {
-  EventDetailToSync,
-  UserDetailToSync
-} from "../../../services/models/EventToSync";
+import { UserDetailToSync } from "../../../services/models/UserDetailToSync";
+import { EventDetailToSync } from "../../../services/models/Events/EventDetailToSync";
 import Checkbox from "react-simple-checkbox";
 import { getSponsors } from "../../../services/sponsorsServices";
 import { Sponsor } from "services/models/sponsor";
