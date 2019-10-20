@@ -10,7 +10,7 @@ const NextEvent: React.SFC<NextEventProps> = () => {
     address: "",
     description: "",
     date: "",
-    picture: ""
+    picture: "",
   };
   const [nextEvent, setNextEvent] = useState(nextEventDefault);
   useEffect(() => {
@@ -18,25 +18,35 @@ const NextEvent: React.SFC<NextEventProps> = () => {
   }, []);
   return (
     <>
-      <div className="row">
-        <div className="col-lg-6">
-          <h2>{nextEvent.title}</h2>
-          <p>{nextEvent.date}</p>
-          <ul>
-            <li>
-              <strong>Bootstrap v4</strong>
-            </li>
-            <li>jQuery</li>
-            <li>Font Awesome</li>
-            <li>Working contact form with validation</li>
-            <li>Unstyled page elements for easy customization</li>
-          </ul>
-          <p>{nextEvent.description}</p>
+      <section>
+        <div id="lgx-about" className="lgx-about lgx-about2">
+          <div className="lgx-inner">
+            <div className="container">
+              <div className="row">
+                <div className="col-md-offset-5 col-sm-12 col-md-7">
+                  <div className="lgx-about-content-area">
+                    <div className="lgx-heading">
+                      <h2 className="heading">{nextEvent.title}</h2>
+                      <h3 className="subheading">{nextEvent.date}</h3>
+                    </div>
+                    <div className="lgx-about-content">
+                      <p className="text">{nextEvent.description}</p>
+                      <div className="section-btn-area">
+                        <a className="lgx-btn" href="about.html">
+                          Mas Información
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="col-md-offset-7 col-sm-12 col-md-5">
+                 <img src={nextEvent.picture}></img>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div className="col-lg-6">
-          <img className="img-fluid rounded" src={nextEvent.picture} alt="" />
-        </div>
-      </div>
+      </section>
     </>
   );
 };

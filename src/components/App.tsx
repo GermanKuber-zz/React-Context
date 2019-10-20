@@ -44,7 +44,6 @@ export const App: React.SFC<AppProps> = props => {
       <Router history={historyRouter}>
         <Header></Header>
         <LoadingOverlay active={props.isLoading} spinner text="Procesando...">
-          <div className="container">
             <Switch>
               <Route exact path="/" component={Home} />
               <Route path="/organizers" component={Organizers} />
@@ -105,7 +104,6 @@ export const App: React.SFC<AppProps> = props => {
               <PrivateRoute path="/admin/panel" component={ControlPanel} />
               <Route path="*" component={NotFound} />
             </Switch>
-          </div>
         </LoadingOverlay>
       </Router>
       <Footer></Footer>

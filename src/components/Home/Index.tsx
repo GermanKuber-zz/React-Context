@@ -3,16 +3,21 @@ import HomeSpeakers from "./HomeSpeakers";
 import HomeOrganizers from "./HomeOrganizers/Index";
 import NextEvent from "./NextEvent/Index";
 import HomeSponsors from "./HomeSponsors/Index";
+import LastEvents from './LastEvents/Index';
+import PhotosSummary from './PhotosSummary/Index';
+import VideoPreview from './VideoPreview/Index';
 
 type LoginProps = {};
 export const Home: React.SFC<LoginProps> = () => {
   return (
     <>
-      <h1>Home</h1>
       <NextEvent></NextEvent>
-      <HomeSponsors></HomeSponsors>
       <HomeSpeakers></HomeSpeakers>
-      <HomeOrganizers></HomeOrganizers>
+      <HomeSponsors></HomeSponsors>
+      <LastEvents></LastEvents>
+      {/* <HomeOrganizers></HomeOrganizers> */}
+      <PhotosSummary></PhotosSummary>
+      <VideoPreview></VideoPreview>
     </>
   );
 };

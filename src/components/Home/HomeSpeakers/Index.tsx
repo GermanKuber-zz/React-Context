@@ -12,35 +12,66 @@ const HomeSpeakers: React.SFC<HomeSpeakersProps> = () => {
   }, []);
   return (
     <>
-      <h2>Algunos de Nuestros Speakers</h2>
-      <div className="row">
-        {speakers.map(speaker => (
-          <div key={speaker.id} className="col-lg-4 col-sm-6 portfolio-item">
-            <div className="card h-100">
-              <a href="#">
-                <img className="card-img-top" src={speaker.picture} alt="" />
-              </a>
-              <div className="card-body">
-                <h4 className="card-title">
-                  <NavLink
-                    exact
-                    className="btn btn-primary"
-                    to={`/speaker/${speaker.id}`}
-                  >
-                    {speaker.name} - {speaker.lastName}
-                  </NavLink>
-                </h4>
-                <p className="card-text">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet
-                  numquam aspernatur eum quasi sapiente nesciunt? Voluptatibus
-                  sit, repellat sequi itaque deserunt, dolores in, nesciunt,
-                  illum tempora ex quae? Nihil, dolorem!
-                </p>
+      <section>
+        <div id="lgx-speakers" className="lgx-speakers">
+          <div className="lgx-inner">
+            <div className="container">
+              <div className="row">
+                <div className="col-xs-12">
+                  <div className="lgx-heading">
+                    <h2 className="heading">Algunos de Nuestros Speakers</h2>
+                    <h3 className="subheading">
+                    Gracias a todos los oradores que colaboral con nuestra comunidad!!
+                    </h3>
+                  </div>
+                </div>
+              </div>
+              <div className="row">
+              {speakers.map(speaker => (
+                <div className="col-xs-12 col-sm-6 col-md-4">
+                  <div className="lgx-single-speaker lgx-single-speaker-circle">
+                    <figure>
+                      <a className="profile-img" href="speakers.html">
+                        <img src={speaker.picture} alt="Speaker" />
+                      </a>
+                      <figcaption>
+                        <div className="social-group">
+                          <a className="sp-tw" href="#">
+                            <i className="fa fa-twitter"></i>
+                          </a>
+                          <a className="sp-fb" href="#">
+                            <i className="fa fa-facebook"></i>
+                          </a>
+                          <a className="sp-insta" href="#">
+                            <i className="fa fa-instagram"></i>
+                          </a>
+                          <a className="sp-in" href="#">
+                            <i className="fa fa-linkedin"></i>
+                          </a>
+                        </div>
+                        <div className="speaker-info">
+                          <h3 className="title">
+                            <a href="speaker.html">{speaker.name}</a>
+                          </h3>
+                          <h4 className="subtitle">{speaker.lastName}</h4>
+                        </div>
+                      </figcaption>
+                    </figure>
+                  </div>
+                </div>))}
+           
+           
+           
+              </div>
+              <div className="section-btn-area">
+                <a className="lgx-btn lgx-btn-big" href="speakers.html">
+                  Mas Speakers
+                </a>
               </div>
             </div>
           </div>
-        ))}
-      </div>
+        </div>
+      </section>
     </>
   );
 };

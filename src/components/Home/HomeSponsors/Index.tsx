@@ -12,28 +12,49 @@ const HomeSponsors: React.SFC<HomeSponsorsProps> = () => {
   }, []);
   return (
     <>
-      <h1 className="my-4">Sponsors</h1>
-      <div className="row">
-        {sponsors.map(sponsor => (
-          <div key={sponsor.id} className="col-lg-4 mb-4">
-            <div className="card h-100">
-              <h4 className="card-header">{sponsor.title}</h4>
-              <div className="card-body">
-                <p className="card-text">{sponsor.description}</p>
-              </div>
-              <div className="card-footer">
-                <NavLink
-                  exact
-                  className="btn btn-primary"
-                  to={`/sponsor/${sponsor.id}`}
-                >
-                  Conocer más
-                </NavLink>
+      <section>
+        <div id="lgx-sponsors" className="lgx-sponsors lgx-sponsors-black">
+          <div className="lgx-inner-bg">
+            <div className="lgx-inner">
+              <div className="container">
+                <div className="row">
+                  <div className="col-xs-12">
+                    <div className="lgx-heading lgx-heading-white">
+                      <h2 className="heading">Offcial Sponsonrs</h2>
+                      <h3 className="subheading">
+                        Welcome to the dedicated to building remarkable
+                        Sponsores!
+                      </h3>
+                    </div>
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="col-xs-12">
+                    <div className="sponsors-area sponsors-area-colorfull-border">
+                      {sponsors.map(sponsor => (
+                        <div className="single">
+                          <NavLink
+                            exact
+                            className="btn btn-primary"
+                            to={`/sponsor/${sponsor.id}`}
+                          >
+                            <img src={sponsor.picture} alt={sponsor.title} />
+                          </NavLink>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+                <div className="section-btn-area sponsor-btn-area">
+                  <a className="lgx-btn" href="#">
+                    Become A Sponsor
+                  </a>
+                </div>
               </div>
             </div>
           </div>
-        ))}
-      </div>
+        </div>
+      </section>
     </>
   );
 };

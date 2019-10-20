@@ -93,29 +93,24 @@ export const Header: React.SFC<HeaderProps> = props => {
           </NavLink>
         </Menu>
       </SecureElement>
-      <nav className="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
-        <div className="container">
-          <NavLink
-            exact
-            className="navbar-brand"
-            activeClassName="active"
-            to="/"
-          >
-            NET-Baires
-          </NavLink>
+      <div className="lgx-header-position lgx-header-position-white lgx-header-position-fixed  menu-onscroll">
+        <nav className="navbar fixed-top navbar-expand-lg navbar-dark header-menu-dark ">
+          <a className="navbar-brand" href="#">
+            Navbar
+          </a>
           <button
-            className="navbar-toggler navbar-toggler-right"
+            className="navbar-toggler"
             type="button"
             data-toggle="collapse"
-            data-target="#navbarResponsive"
-            aria-controls="navbarResponsive"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
             <span className="navbar-toggler-icon"></span>
           </button>
-          <div className="collapse navbar-collapse" id="navbarResponsive">
-            <ul className="navbar-nav ml-auto">
+          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul className="navbar-nav ml-auto">
               <li className="nav-item">
                 <NavLink
                   exact
@@ -157,11 +152,64 @@ export const Header: React.SFC<HeaderProps> = props => {
                 </>
               )}
             </ul>
+            <form className="form-inline">
+              <div className="md-form my-0">
+                <input
+                  className="form-control mr-sm-2"
+                  type="text"
+                  placeholder="Search"
+                  aria-label="Search"
+                ></input>
+              </div>
+            </form>
+          </div>
+        </nav>
+      </div>
+      <section>
+        <div
+          id="lgx-parallax-banner"
+          className="lgx-banner lgx-banner-parallax"
+        >
+          <div className="lgx-section">
+            <div id="layer-wrapper" className="lgx-item-parallax-banner">
+              <div className="banner-content">
+                <div className="lgx-hover-link">
+                  <div className="lgx-vertical">
+                    <div className="lgx-banner-info lgx-banner-info-center">
+                      <div className="lgx-countdown-area">
+                        <div id="lgx-countdown" data-date="2019/12/15"></div>
+                      </div>
+                      <h2 className="title">
+                        Conference{" "}
+                        <span>
+                          <b>2</b>
+                          <b>0</b>
+                          <b>1</b>
+                          <b>9</b>
+                        </span>
+                      </h2>
+                      <h3 className="location">
+                        <i className="fa fa-map-marker"></i> 21 King Street,
+                        Dhaka 1205, Bangladesh.
+                      </h3>
+                      <h3 className="date">
+                        <i className="fa fa-calendar"></i> 23-27 September, 2018
+                      </h3>
+                      <div className="action-area">
+                        <div className="lgx-video-area">
+                          <a className="lgx-btn lgx-btn-red" href="#">
+                            Buy Ticket Now
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </nav>
-
-      <header className="header-image "></header>
+      </section>
     </>
   );
 };
