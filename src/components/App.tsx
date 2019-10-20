@@ -32,6 +32,8 @@ import { EditUser } from "./Admin/Users/EditUser";
 import { NewUser } from "./Admin/Users/NewUser";
 import EventBriteCallBack from "./Login/EventBriteCallBack";
 import { PublicProfile } from "./Profile/PublicProfile";
+import { EventsInLive } from "./Events/EventsInLive";
+import ReportAssistance from "./ReportAssistance/Index";
 
 interface AppProps {
   isLoading: boolean;
@@ -63,6 +65,7 @@ export const App: React.SFC<AppProps> = props => {
                           path="/speaker/:id(\d+)?"
                           component={SpeakerDetail}
                         />
+
                         <Route
                           path="/members/:id(\d+)/profile"
                           component={PublicProfile}
@@ -75,6 +78,12 @@ export const App: React.SFC<AppProps> = props => {
                         <Route
                           path="/login/eventBrite"
                           component={EventBriteCallBack}
+                        />
+                        <Route path="/events/live" component={EventsInLive} />
+                        <PrivateRoute
+                          exact
+                          path="/member/reportAssistance/:id(\d+)?"
+                          component={ReportAssistance}
                         />
 
                         <PrivateRoute
@@ -144,13 +153,13 @@ export const App: React.SFC<AppProps> = props => {
                           path="/admin/panel"
                           component={ControlPanel}
                         />
-                        <Route path="*" component={NotFound} />
                       </div>
                     </div>
                   </div>
                 </section>
               </div>
             </main>
+            <Route exact path="*" component={NotFound} />
           </Switch>
         </LoadingOverlay>
       </Router>

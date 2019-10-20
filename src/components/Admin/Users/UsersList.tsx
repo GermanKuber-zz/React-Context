@@ -4,9 +4,10 @@ import BootstrapTable from "react-bootstrap-table-next";
 import ToolkitProvider, { Search } from "react-bootstrap-table2-toolkit";
 import paginationFactory from "react-bootstrap-table2-paginator";
 import { UserToEdit } from "../../../services/models/User";
-import { getAllUsersToEdit } from "../../../services/userServices";
+import { getAllUsersToEdit, enableUser } from "../../../services/userServices";
 import { useHistory } from "react-router";
 import { NavLink } from "react-router-dom";
+import Checkbox from "react-simple-checkbox";
 
 export const UsersList: React.SFC = () => {
   const [users, setUsers] = useState(new Array<UserToEdit>());
@@ -15,7 +16,12 @@ export const UsersList: React.SFC = () => {
     getAllUsersToEdit().then(users => setUsers(users));
   }, []);
   const { SearchBar } = Search;
-
+  const handleUserAttended = (isChecked: boolean, user: UserToEdit) => {
+    const updateIndex = users.indexOf(user);
+    const usersToUpdate = users.slice();
+    usersToUpdate[updateIndex].enabled = isChecked;
+    enableUser(user, isChecked).then(() => setUsers(usersToUpdate));
+  };
   const columns = [
     {
       dataField: "id",
@@ -32,6 +38,20 @@ export const UsersList: React.SFC = () => {
     {
       dataField: "email",
       text: "Email"
+    },
+    {
+      dataField: "enabled",
+      text: "Activo",
+      style: {
+        textAlign: "center",
+        height: "2px"
+      },
+      formatter: (_cellContent: any, user: UserToEdit) => (
+        <Checkbox
+          checked={user.enabled}
+          onChange={(i: boolean) => handleUserAttended(i, user)}
+        ></Checkbox>
+      )
     },
     {
       text: "Eliminar",

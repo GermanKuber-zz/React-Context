@@ -21,7 +21,9 @@ export const MeetupCallBack: React.SFC<
     loginWithMeetupToken(token)
       .then((user: User) => {
         login(user);
-        history.push("/");
+        const redirectUrl = localStorage.getItem("RedirectUrl") as string;
+        localStorage.setItem("RedirectUrl", "/");
+        history.push(redirectUrl);
       })
       .catch(() => {});
   }, []);

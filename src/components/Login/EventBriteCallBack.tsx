@@ -9,7 +9,8 @@ type EventBriteCallBackProps = {
 type EventBriteCallBackParams = {
   id: number;
 };
-type EventBriteCallBackPropsAndRouter = EventBriteCallBackParams & EventBriteCallBackProps;
+type EventBriteCallBackPropsAndRouter = EventBriteCallBackParams &
+  EventBriteCallBackProps;
 export const EventBriteCallBack: React.SFC<
   RouteComponentProps<EventBriteCallBackPropsAndRouter>
 > = props => {
@@ -21,7 +22,9 @@ export const EventBriteCallBack: React.SFC<
     loginWithMeetupToken(token)
       .then((user: User) => {
         login(user);
-        history.push("/");
+        const redirectUrl = localStorage.getItem("RedirectUrl") as string;
+        localStorage.setItem("RedirectUrl", "/");
+        history.push(redirectUrl);
       })
       .catch(() => {});
   }, []);

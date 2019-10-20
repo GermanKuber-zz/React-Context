@@ -20,10 +20,9 @@ const HomeOrganizers: React.SFC<HomeOrganizersProps> = () => {
               <div className="row">
                 <div className="col-xs-12">
                   <div className="lgx-heading">
-                    <h2 className="heading">What Clients Say</h2>
+                    <h2 className="heading">Organizadores de la Comunidad</h2>
                     <h3 className="subheading">
-                      Welcome to the dedicated to building remarkable
-                      Testimonials!
+                      Estos son los miembros que trabajan por la comunidad
                     </h3>
                   </div>
                 </div>
@@ -111,7 +110,7 @@ const HomeOrganizers: React.SFC<HomeOrganizersProps> = () => {
           </div>
         </div>
       </section>
-      <h1 className="my-4">Organizadores</h1>
+      {/* <h1 className="my-4">Organizadores</h1>
       <div className="row">
         {organizer.map(organizer => (
           <div key={organizer.id} className="col-lg-4 mb-4">
@@ -137,7 +136,7 @@ const HomeOrganizers: React.SFC<HomeOrganizersProps> = () => {
             </div>
           </div>
         ))}
-      </div>
+      </div> */}
     </>
   );
 };

@@ -21,4 +21,5 @@ export interface UserToEdit {
   email: string;
   name: string;
   lastName: string;
+  enabled: boolean;
 }

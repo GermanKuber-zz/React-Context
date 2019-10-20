@@ -20,6 +20,11 @@ const Login: React.SFC<LoginProps> = props => {
     redirectUri: Config.integrations.meetup.redirectUri,
     scopes: Config.integrations.meetup.scopes
   });
+  const redirectUrl = history.location.search.slice(
+    1,
+    history.location.search.length
+  );
+  localStorage.setItem("RedirectUrl", redirectUrl);
   var eventBriteAuth = new ClientOAuth2({
     clientId: Config.integrations.eventBrite.clientId,
     redirectUri: Config.integrations.meetup.redirectUri
@@ -28,7 +33,7 @@ const Login: React.SFC<LoginProps> = props => {
     event.preventDefault();
     const user = loginService(email, password);
     login(user);
-    history.push("/");
+    history.push(history.location.search);
   };
   const handleLoginMeetup = (event: MouseEvent<HTMLInputElement>) => {
     event.preventDefault();

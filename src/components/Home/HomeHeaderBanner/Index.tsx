@@ -1,11 +1,10 @@
-import React, {  } from "react";
+import React from "react";
 
 type HomeHeaderBannerProps = {};
 const HomeHeaderBanner: React.SFC<HomeHeaderBannerProps> = () => {
-
   return (
-   <>
-    <section>
+    <>
+      <section>
         <div
           id="lgx-parallax-banner"
           className="lgx-banner lgx-banner-parallax"
@@ -19,15 +18,7 @@ const HomeHeaderBanner: React.SFC<HomeHeaderBannerProps> = () => {
                       <div className="lgx-countdown-area">
                         <div id="lgx-countdown" data-date="2019/12/15"></div>
                       </div>
-                      <h2 className="title">
-                        Conference{" "}
-                        <span>
-                          <b>2</b>
-                          <b>0</b>
-                          <b>1</b>
-                          <b>9</b>
-                        </span>
-                      </h2>
+                      <h2 className="title">NET-Baires</h2>
                       <h3 className="location">
                         <i className="fa fa-map-marker"></i> 21 King Street,
                         Dhaka 1205, Bangladesh.
@@ -50,7 +41,7 @@ const HomeHeaderBanner: React.SFC<HomeHeaderBannerProps> = () => {
           </div>
         </div>
       </section>
-   </>
+    </>
   );
 };
 

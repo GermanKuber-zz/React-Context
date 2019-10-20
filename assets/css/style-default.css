@@ -10765,7 +10765,7 @@ lgx-zoomInUp
   color: #efa506;
 }
 .lgx-photo-gallery-black {
-  background: url('http://placehold.it/1920x800') bottom center no-repeat fixed;
+  background: url('../images/conference.jpg') bottom center no-repeat fixed;
   -webkit-background-size: cover;
   -o-background-size: cover;
   -moz-background-size: cover;
@@ -11259,7 +11259,7 @@ blockquote.lgx-testi-single:before {
 /* 2.16 VIDEO SECTION
 ---------------------------------------------------------------------*/
 .lgx-video {
-  background: url('http://placehold.it/1920x800') top center no-repeat;
+  background: url('../images//video-image.jpg') top center no-repeat;
   -webkit-background-size: cover;
   -o-background-size: cover;
   -moz-background-size: cover;

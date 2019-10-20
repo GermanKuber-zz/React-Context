@@ -126,7 +126,7 @@ export const Header: React.SFC<HeaderProps> = props => {
         <nav className="navbar fixed-top navbar-expand-lg navbar-dark header-menu-dark ">
           <NavLink className="navbar-brand" activeClassName="active" to="/">
             <img
-              class="logo-header"
+              className="logo-header"
               src="/assets/images/logo-header.png"
               alt="Logo"
             ></img>
@@ -152,6 +152,16 @@ export const Header: React.SFC<HeaderProps> = props => {
                   to="/organizers/1111"
                 >
                   Organizadores
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink
+                  exact
+                  className="nav-link"
+                  activeClassName="active"
+                  to="/events/live"
+                >
+                  Eventos en Vivo
                 </NavLink>
               </li>
               {!isLoggued ? (
@@ -185,16 +195,10 @@ export const Header: React.SFC<HeaderProps> = props => {
                 </>
               )}
             </ul>
-            <form className="form-inline">
-              <div className="md-form my-0">
-                <i class="fas fa-sign-in-alt"></i>
-              </div>
-            </form>
           </div>
         </nav>
       </div>
       <BreadcrumbsComponent></BreadcrumbsComponent>
-      <Breadcrumbs></Breadcrumbs>
     </>
   );
 };

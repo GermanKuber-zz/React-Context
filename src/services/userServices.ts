@@ -31,3 +31,9 @@ export const deleteEditUser = (id: number): Promise<boolean> => {
 export const newUser = (user: UserToEdit): Promise<boolean> => {
   return fetch(`http://localhost:3000/usersToEdit/${id}`).then(x => x.json());
 };
+export const enableUser = (
+  user: UserToEdit,
+  enable: boolean
+): Promise<boolean> => {
+  return fetch(`http://localhost:3000/usersToEdit/`).then(x => x.json());
+};

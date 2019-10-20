@@ -10,10 +10,7 @@ const VideoPreview: React.SFC<VideoPreviewProps> = () => {
             <div className="container">
               <div className="row">
                 <div className="col-md-12">
-                  <h2 className="lgx-video-title">
-                    <span>Watch Our Promo video!</span>How to make an online
-                    order
-                  </h2>
+                  <h2 className="lgx-video-title">Mira nuestro video 2019</h2>
                   <div className="lgx-video-area">
                     <figure>
                       <figcaption>
@@ -47,8 +44,11 @@ const VideoPreview: React.SFC<VideoPreviewProps> = () => {
                           </div>
                           <div className="modal-body">
                             <iframe
-                              id="modalvideo"
-                              src="https://www.youtube.com/embed/oSPR5Go05Vg"
+                              width="1280"
+                              height="720"
+                              src="https://www.youtube.com/embed/38818Yb9DVQ"
+                              frameborder="0"
+                              allowfullscreen
                             ></iframe>
                           </div>
                         </div>

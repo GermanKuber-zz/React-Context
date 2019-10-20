@@ -2,12 +2,7 @@ import React, { useState } from "react";
 import { FormikProps, Field, Form, withFormik } from "formik";
 import * as yup from "yup";
 import { UserToEdit } from "../../../../services/models/User";
-interface FormValues {
-  id?: number;
-  email: string;
-  name: string;
-  lastName: string;
-}
+interface FormValues extends UserToEdit {}
 
 const EditUserComponentForm = (props: FormikProps<FormValues>) => {
   const { touched, errors, isSubmitting } = props;
@@ -43,6 +38,13 @@ const EditUserComponentForm = (props: FormikProps<FormValues>) => {
           <div className="form-error alert alert-danger">{errors.email}</div>
         )}
       </div>
+      <div className="form-group">
+        <label>Activo</label>
+        <Field disabled type="name" name="enabled" className="form-control" />
+        {touched.enabled && errors.enabled && (
+          <div className="form-error alert alert-danger">{errors.enabled}</div>
+        )}
+      </div>
       <button type="submit" disabled={isSubmitting} className="btn btn-primary">
         Guardar
       </button>
@@ -50,11 +52,7 @@ const EditUserComponentForm = (props: FormikProps<FormValues>) => {
   );
 };
 
-interface MyFormProps {
-  id: number;
-  email: string;
-  name: string;
-  lastName: string;
+interface MyFormProps extends UserToEdit {
   saveUser: (user: UserToEdit) => void;
 }
 const EditAllUserFormik = withFormik<MyFormProps, FormValues>({

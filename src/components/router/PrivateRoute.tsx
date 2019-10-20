@@ -13,13 +13,22 @@ export const PrivateRoute = ({ component, ...rest }: RouteProps) => {
   if (!component) {
     throw Error("component is undefined");
   }
-
   const Component = component; // JSX Elements have to be uppercase.
   const render = (props: RouteComponentProps<any>): React.ReactNode => {
     if (isLoggued) {
       return <Component {...props} />;
     }
-    return <Redirect to={{ pathname: "/login" }} />;
+    const redirectUrl = props.location.pathname;
+
+    return (
+      <Redirect
+        to={{
+          pathname: "/login",
+          search: `${redirectUrl}`,
+          state: { from: props.location }
+        }}
+      />
+    );
   };
 
   return <Route {...rest} render={render} />;

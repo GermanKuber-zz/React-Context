@@ -14,9 +14,10 @@ const PhotosSummary: React.SFC<PhotosSummaryProps> = () => {
               <div className="row">
                 <div className="col-xs-12">
                   <div className="lgx-heading lgx-heading-white">
-                    <h2 className="heading">Photo Gallery</h2>
+                    <h2 className="heading">Fotos</h2>
                     <h3 className="subheading">
-                      Welcome to the dedicated to building remarkable Sponsores!
+                      Algunas de las fotos de los ultimos eventos realizados por
+                      la comunidad.
                     </h3>
                   </div>
                 </div>

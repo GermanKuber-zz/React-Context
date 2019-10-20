@@ -38,8 +38,6 @@ export const BreadcrumbsComponent: React.SFC<
   RouteComponentProps<BreadcrumbsProps>
 > = ({ match }) => {
   const history = useHistory();
-  console.log(history);
-  console.log(match);
   return (
     <>
       {history.location.pathname != "/" && (

@@ -20,10 +20,10 @@ const HomeSponsors: React.SFC<HomeSponsorsProps> = () => {
                 <div className="row">
                   <div className="col-xs-12">
                     <div className="lgx-heading lgx-heading-white">
-                      <h2 className="heading">Offcial Sponsonrs</h2>
+                      <h2 className="heading">Sponsonrs</h2>
                       <h3 className="subheading">
-                        Welcome to the dedicated to building remarkable
-                        Sponsores!
+                        Gracias a todos nuestros sponsors que hacen posible cada
+                        uno de nuestros eventos.
                       </h3>
                     </div>
                   </div>
