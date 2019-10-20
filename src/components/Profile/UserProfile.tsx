@@ -3,6 +3,7 @@ import { FormikProps, Field, Form, withFormik } from "formik";
 import { UserDetail } from "../../services/models/User";
 import * as yup from "yup";
 import { getUserProfile } from "../../services/userServices";
+import { ShareProfile } from './ShareProfile';
 interface FormValues {
   id: number;
   email: string;
@@ -18,6 +19,8 @@ interface FormValues {
 const UserProfileForm = (props: FormikProps<FormValues>) => {
   const { touched, errors, isSubmitting } = props;
   return (
+    <>
+    <ShareProfile urlToShare={"www.google.com.ar"}></ShareProfile>
     <Form>
       <div className="form-group">
         <label>Nombre</label>
@@ -66,6 +69,7 @@ const UserProfileForm = (props: FormikProps<FormValues>) => {
         Submit
       </button>
     </Form>
+    </>
   );
 };
 

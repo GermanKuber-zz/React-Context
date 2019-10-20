@@ -13,7 +13,7 @@
     },
     "eventBrite": {
       "clientId": "NCIKDME6JQAYT7E74V",
-      "redirectUri": "http://localhost:8080/login/meetup"
+      "redirectUri": "http://localhost:8080/login/eventBrite"
     }
   }
 }

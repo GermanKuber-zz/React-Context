@@ -30,6 +30,7 @@ import UserProfile from "./Profile/UserProfile";
 import { UsersList } from "./Admin/Users/UsersList";
 import { EditUser } from "./Admin/Users/EditUser";
 import { NewUser } from "./Admin/Users/NewUser";
+import EventBriteCallBack from './Login/EventBriteCallBack';
 
 interface AppProps {
   isLoading: boolean;
@@ -51,6 +52,9 @@ export const App: React.SFC<AppProps> = props => {
               <Route path="/speaker/:id(\d+)?" component={SpeakerDetail} />
               <Route path="/sponsor/:id(\d+)?" component={Sponsor} />
               <Route path="/login/meetup" component={MeetupCallBack} />
+              <Route path="/login/eventBrite" component={EventBriteCallBack} />
+
+              
               <PrivateRoute
                 exact
                 path="/admin/eventsToSync"
