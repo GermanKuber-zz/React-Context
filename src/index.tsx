@@ -10,11 +10,14 @@ import "mdbreact/dist/css/mdb.css";
 import { Provider } from "react-redux";
 import { createStore } from "redux";
 import rootReducer from "./store";
+import { ThroughProvider } from "react-through";
 let storeGlobal = createStore(rootReducer);
 ReactDOM.render(
   <UserProvider>
     <Provider store={storeGlobal}>
-      <AppConnected />
+      <ThroughProvider>
+        <AppConnected />
+      </ThroughProvider>
     </Provider>
   </UserProvider>,
   document.getElementById("root")

@@ -1,11 +1,22 @@
 import React, { useContext, useState, MouseEvent } from "react";
 import { UserContext } from "../../contexts/UserContext";
-import { NavLink, useHistory } from "react-router-dom";
+import { NavLink, useHistory, Link } from "react-router-dom";
 import { Location } from "history";
-import { match } from "react-router";
+import { match, Route } from "react-router";
 import { slide as Menu } from "react-burger-menu";
 import { SecureElement } from "../Auth/SecureElement";
+import { BreadcrumbsComponent } from './BreadcrumbsComponent';
 type HeaderProps = {};
+const Breadcrumbs = () => <Route path="*" render={props => {
+  let parts = props.location.pathname.split("/");
+  const place = parts[parts.length-1];
+  parts = parts.slice(1, parts.length-1);
+  return <p>{parts.map(crumb)}{place}</p>}} />
+
+const crumb = (part:any, partIndex:any, parts:any) => {
+      const path = ['', ...parts.slice(0, partIndex+1)].join("/");
+      return (<>
+      <Link key={path} to={path} >{part}</Link>/</>)}
 export const Header: React.SFC<HeaderProps> = props => {
   const { user, isLoggued, logout } = useContext(UserContext);
   const [open, setOpen] = useState(false);
@@ -165,51 +176,9 @@ export const Header: React.SFC<HeaderProps> = props => {
           </div>
         </nav>
       </div>
-      <section>
-        <div
-          id="lgx-parallax-banner"
-          className="lgx-banner lgx-banner-parallax"
-        >
-          <div className="lgx-section">
-            <div id="layer-wrapper" className="lgx-item-parallax-banner">
-              <div className="banner-content">
-                <div className="lgx-hover-link">
-                  <div className="lgx-vertical">
-                    <div className="lgx-banner-info lgx-banner-info-center">
-                      <div className="lgx-countdown-area">
-                        <div id="lgx-countdown" data-date="2019/12/15"></div>
-                      </div>
-                      <h2 className="title">
-                        Conference{" "}
-                        <span>
-                          <b>2</b>
-                          <b>0</b>
-                          <b>1</b>
-                          <b>9</b>
-                        </span>
-                      </h2>
-                      <h3 className="location">
-                        <i className="fa fa-map-marker"></i> 21 King Street,
-                        Dhaka 1205, Bangladesh.
-                      </h3>
-                      <h3 className="date">
-                        <i className="fa fa-calendar"></i> 23-27 September, 2018
-                      </h3>
-                      <div className="action-area">
-                        <div className="lgx-video-area">
-                          <a className="lgx-btn lgx-btn-red" href="#">
-                            Buy Ticket Now
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+     <BreadcrumbsComponent></BreadcrumbsComponent>
+    <Breadcrumbs></Breadcrumbs>
+
     </>
   );
 };

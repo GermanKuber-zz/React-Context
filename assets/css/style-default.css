@@ -11955,7 +11955,7 @@ blockquote.lgx-testi-single:before {
   padding: 17rem 0 9rem;
 }
 .lgx-banner-inner {
-  /* background: url('http://placehold.it/1920x500') center center no-repeat; */
+  background: url('../img/bread-banner.jpg') center center no-repeat;
   -webkit-background-size: cover;
   -o-background-size: cover;
   -moz-background-size: cover;
